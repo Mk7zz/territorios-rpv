@@ -1,0 +1,84 @@
+/*
+ * Tema da instância (white label). Cores da identidade Rio Pomba Valley:
+ * mata (#1f7a4d), folha (#3aa655), limão (#8cc63f), rio (#12a3a0), tinta (#23384a) e sol (#f2b705).
+ * Para outra organização, troque apenas os valores abaixo.
+ */
+:root {
+  --brand: #1f7a4d;
+  --brand-600: #17613d;
+  --brand-50: #eaf6ee;
+  --brand-100: #cdebd7;
+  --lime: #8cc63f;
+  --lime-600: #5f9a22;
+  --lime-50: #f1f9e4;
+  --leaf: #3aa655;
+  --river: #12a3a0;
+  --river-50: #e2f6f5;
+  --ink: #23384a;
+  --line: #1b2b33;
+  --accent: #f2b705;
+  --accent-50: #fff6d6;
+  --bg: #eef4ef;
+  --surface: #ffffff;
+  --surface-2: #f5f9f6;
+  --border: #d3e0d7;
+  --text: #1b2b33;
+  --text-2: #43585a;
+  --muted: #6b7f78;
+  --hud-bg: #12382a;
+  --hud-text: #eaf6ee;
+  --drop: rgba(27, 43, 51, 0.16);
+  --xp-grad: linear-gradient(90deg, #12a3a0, #3aa655 55%, #8cc63f);
+  --danger: #b42318;
+  --danger-50: #fdecea;
+  --warning: #b54708;
+  --warning-50: #fff4e5;
+  --success: #067647;
+  --success-50: #e6f6ee;
+  --info: #175cd3;
+  --info-50: #eaf1fd;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow: 3px 3px 0 var(--drop);
+  --font: 'Nunito Sans', 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-display: 'Silkscreen', 'Pixelify Sans', 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  --font-pixel: 'Silkscreen', 'Pixelify Sans', monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: #5cc98a;
+    --brand-600: #7ad6a1;
+    --brand-50: #12251b;
+    --brand-100: #1b3a29;
+    --lime: #a5d65c;
+    --lime-600: #6e9e2c;
+    --lime-50: #1f2a12;
+    --leaf: #57c06f;
+    --river: #3cc7c2;
+    --river-50: #0f2a29;
+    --ink: #d8e4ee;
+    --line: #04100b;
+    --accent: #f5c63a;
+    --accent-50: #2e2610;
+    --bg: #0b1310;
+    --surface: #13201b;
+    --surface-2: #182822;
+    --border: #2a3d34;
+    --text: #e6efea;
+    --text-2: #b2c4bb;
+    --muted: #82958c;
+    --hud-bg: #0a1f17;
+    --drop: rgba(0, 0, 0, 0.45);
+    --danger: #f97066;
+    --danger-50: #2f1513;
+    --warning: #fdb022;
+    --warning-50: #2e2210;
+    --success: #47cd89;
+    --success-50: #11281c;
+    --info: #84adff;
+    --info-50: #121e33;
+    color-scheme: dark;
+  }
+}
