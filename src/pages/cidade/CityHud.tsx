@@ -13,7 +13,7 @@ export function useCityTitle(title?: string) {
   }, [title]);
 }
 
-/** Placa do jogo no alto do mapa: só o nome e o logo do Rio Pomba Valley (public/rio-pomba-valley.png). */
+/** Título no alto do mapa, sem placa: o nome do jogo em destaque e o logo do Rio Pomba Valley (public/rio-pomba-valley.png, fundo transparente). */
 export function Logo({ big }: { big?: boolean }) {
   return (
     <span className={`city-logo ${big ? 'big' : ''}`} aria-label={`${APP_NAME} · Rio Pomba Valley`}>
