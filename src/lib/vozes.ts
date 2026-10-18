@@ -10,8 +10,8 @@
  *
  * Por mestre: 1 fala de entrada, de acerto e de erro e, para cada pergunta dele, a pergunta e a
  * curiosidade. A Pomba (pasta `pomba`) tem uma pasta por ponto focal e, nela, a pergunta e a
- * resposta de cada pergunta (`pomba/<lugar>/pergunta-1`, `pomba/<lugar>/resposta-1`...). No acerto e
- * no erro dos pontos focais, a Pomba reaproveita as gravações de acerto e erro dos Mestres do Saber.
+ * resposta de cada pergunta (`pomba/<lugar>/pergunta-1`, `pomba/<lugar>/resposta-1`...). Acerto e
+ * erro seguem um padrão em todo o jogo (PADRAO, abaixo).
  * O roteiro sai de `npm run roteiro` (docs/ROTEIRO-VOZES.md). Mudou o texto, regrave.
  */
 import { CITY_INFO, MASTER_PLACES, QUESTIONS, type Question } from './cidade';
@@ -28,8 +28,9 @@ export interface Clip {
 /** O que o mestre diz quando a criança entra na casa. */
 export const enterClip = (m: Master): Clip => ({ id: 'entrada', text: m.enter });
 
-export const rightClip = (m: Master, k: number): Clip => ({ id: `acerto-${k + 1}`, text: m.right[k] });
-export const wrongClip = (m: Master, k: number): Clip => ({ id: `erro-${k + 1}`, text: m.wrong[k] });
+/** Acerto e erro do mestre; sem a gravação dele, toca o acerto/erro padrão (veja PADRAO). */
+export const rightClip = (m: Master, k: number): Clip => ({ id: `acerto-${k + 1}`, text: m.right[k], alts: padraoAlts('acerto') });
+export const wrongClip = (m: Master, k: number): Clip => ({ id: `erro-${k + 1}`, text: m.wrong[k], alts: padraoAlts('erro') });
 
 /** A pergunta falada é o gancho (que já termina perguntando); a curiosidade sempre diz a resposta certa. */
 export function questionClips(q: Question) {
@@ -42,25 +43,26 @@ export function questionClips(q: Question) {
 /** Pasta das falas da Pomba, que narra os pontos focais. */
 export const POMBA = 'pomba';
 
-/** Mestres do Saber cujas gravações de acerto e erro a Pomba reaproveita nos pontos focais. */
-const MESTRES = ['sektor', 'dona-rosa', 'seu-zico'];
+/**
+ * Acerto e erro padrão do jogo: as gravações dos Mestres do Saber, sempre nesta ordem (a primeira
+ * que existir na voz do personagem toca). Hoje: Dona Rosa nas vozes de menina, Sektor nas de menino.
+ */
+const PADRAO = ['dona-rosa', 'sektor', 'seu-zico'];
 
-/** Gravações de acerto ou de erro de todos os Mestres, embaralhadas (a primeira que existir toca). */
-function mestreAlts(kind: 'acerto' | 'erro') {
-  const all = MESTRES.flatMap((who) => {
+function padraoAlts(kind: 'acerto' | 'erro') {
+  return PADRAO.flatMap((who) => {
     const m = MASTER_PLACES[who].master!;
     return (kind === 'acerto' ? m.right : m.wrong).map((_, k) => ({ who, id: `${kind}-${k + 1}` }));
   });
-  return all.sort(() => Math.random() - 0.5);
 }
 
-/** Falas comuns da Pomba em todos os pontos focais. Acerto e erro tocam a voz de um Mestre do Saber. */
+/** Falas comuns da Pomba em todos os pontos focais. Acerto e erro tocam o acerto/erro padrão. */
 export const POMBA_CLIPS = {
   get right(): Clip {
-    return { text: 'Parabéns! Você acertou!', alts: mestreAlts('acerto') };
+    return { text: 'Parabéns! Você acertou!', alts: padraoAlts('acerto') };
   },
   get wrong(): Clip {
-    return { text: 'Quase! Tente de novo.', alts: mestreAlts('erro') };
+    return { text: 'Quase! Olha a resposta certa.', alts: padraoAlts('erro') };
   },
   /** Dica falada ao tocar na pomba (o balão mostra a dica certinha de cada coisa). */
   tip: { id: 'dica', text: 'Toque nas coisas para descobrir!' } as Clip,
