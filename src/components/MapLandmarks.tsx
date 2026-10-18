@@ -55,7 +55,7 @@ function Agave({ x, y }: { x: number; y: number }) {
 
 /**
  * Casa laranja com as duas alas de telhado vermelho, o corpo do meio mais alto com o frontão de
- * renda branca, o olho-de-boi, a cruz em cima, as janelas em arco, cunhais brancos, a grade branca
+ * renda branca, o olho-de-boi, as janelas em arco, cunhais brancos, a grade branca
  * da varanda, a base cinza e as agaves na frente.
  */
 export function chacaraParts(p: Place, glass: string): HouseParts {
@@ -89,7 +89,7 @@ export function chacaraParts(p: Place, glass: string): HouseParts {
   return {
     body,
     details: [],
-    sign: [x - 5, y - 46],
+    sign: [x - 5, y - 42],
     under: (
       <g>
         {R(x - 27, y - 2, 54, 2, '#8d969c')}
@@ -112,12 +112,9 @@ export function chacaraParts(p: Place, glass: string): HouseParts {
           </g>
         ))}
         {lace}
-        {/* Olho-de-boi e a cruz com o enfeite amarelo */}
+        {/* Olho-de-boi */}
         <circle cx={x} cy={y - 27} r={2.2} fill={white} />
         <circle cx={x} cy={y - 27} r={1.2} fill={win} />
-        {R(x - 0.5, y - 38, 1, 5, white)}
-        {R(x - 1.5, y - 37, 3, 1, white)}
-        {R(x - 1, y - 33, 2, 1, '#f2b705')}
         {/* Cunhais brancos com os blocos */}
         {[x - 9, x + 7.5, x - 27, x + 25.5].map((cx) => (
           <g key={cx}>
@@ -148,9 +145,9 @@ export function chacaraParts(p: Place, glass: string): HouseParts {
 /* ---- Centro Cultural Humberto Mauro ---- */
 
 /**
- * Prédio de dois andares: a galeria em cima (janelões com os quadros lá dentro), a faixa vermelha
- * com o logo e o nome, e embaixo a entrada aberta mostrando o elevador vermelho, a cortina e as
- * cadeiras do teatro, entre os pilares de cobogó. Caixa d'água em cima e o cartaz na calçada.
+ * Prédio de dois andares, mais largo que as casas: a galeria em cima (janelões com os quadros lá
+ * dentro), a faixa vermelha com o logo e o nome, e embaixo a entrada aberta mostrando o elevador
+ * vermelho, a cortina e as cadeiras do teatro, entre os pilares de cobogó. Cartaz na calçada.
  */
 export function culturalParts(p: Place, glass: string): HouseParts {
   const { x, y } = p;
@@ -159,74 +156,68 @@ export function culturalParts(p: Place, glass: string): HouseParts {
   const red = '#d42a2a';
   const brick = '#9a5a48';
   const body: Part[] = [
-    [x - 16, y - 32, 32, 32, wall],
-    [x - 17, y - 34, 34, 2, '#cfcdb0'],
-    [x + 5, y - 39, 8, 5, '#b9c0c4'],
+    [x - 22, y - 38, 44, 38, wall],
+    [x - 23, y - 40, 46, 2, '#cfcdb0'],
   ];
-  const art = ['#d64545', '#2f8fd8', '#f2b705', '#3aa655', '#6b4fa0', '#e8772e'];
+  const art = ['#d64545', '#2f8fd8', '#f2b705', '#3aa655', '#6b4fa0', '#e8772e', '#2f8fd8', '#d64545'];
   return {
     body,
     details: [],
-    sign: [x - 5, y - 50],
-    under: R(x - 16, y - 1, 32, 1, '#8d969c'),
+    sign: [x - 5, y - 52],
+    under: R(x - 22, y - 1, 44, 1, '#8d969c'),
     extra: (
       <g>
-        {/* Caixa d'água e o ar-condicionado em cima */}
-        {R(x + 5, y - 36, 8, 1, '#8d969c')}
-        {R(x + 6, y - 38, 2, 4, '#dfe4e6')}
-        {R(x - 13, y - 37, 5, 3, '#c9ced1')}
-        {R(x - 12, y - 36, 3, 1, '#8d969c')}
         {/* Janelões da galeria com os quadros */}
-        {[x - 14, x + 1].map((wx, i) => (
+        {[x - 20, x + 3].map((wx, i) => (
           <g key={wx}>
-            {R(wx - 1, y - 30, 15, 11, '#4a5258')}
-            {R(wx, y - 29, 13, 9, night ? '#f3e2b0' : '#e9eef0')}
-            {[0, 1, 2].map((k) => R(wx + 1 + k * 4, y - 27, 3, 3, art[(k + i * 3) % art.length]))}
-            {R(wx, y - 23, 13, 3, night ? '#e9cf8a' : '#d9cdb4')}
-            {R(wx + 6.25, y - 29, 0.5, 9, '#4a5258')}
-            {R(wx, y - 29, 13, 1, '#ffffff', 0.35)}
+            {R(wx - 1, y - 36, 19, 13, '#4a5258')}
+            {R(wx, y - 35, 17, 11, night ? '#f3e2b0' : '#e9eef0')}
+            {[0, 1, 2, 3].map((k) => R(wx + 1 + k * 4, y - 32, 3, 3, art[k + i * 4]))}
+            {R(wx, y - 27, 17, 3, night ? '#e9cf8a' : '#d9cdb4')}
+            {R(wx + 8.25, y - 35, 0.5, 11, '#4a5258')}
+            {R(wx, y - 35, 17, 1, '#ffffff', 0.35)}
           </g>
         ))}
         {/* Faixa vermelha com o logo e as letrinhas do nome */}
-        {R(x - 17, y - 18, 34, 6, red)}
-        {R(x - 17, y - 18, 34, 1, '#e8584f')}
-        {R(x - 17, y - 13, 34, 1, '#a81f1f')}
-        {R(x - 15, y - 17, 3, 4, '#ffffff')}
-        {R(x - 14, y - 16, 1, 3, red)}
-        {R(x - 10, y - 16.5, 18, 1, '#ffffff')}
-        {R(x - 10, y - 14.5, 14, 1, '#ffffff')}
+        {R(x - 23, y - 21, 46, 7, red)}
+        {R(x - 23, y - 21, 46, 1, '#e8584f')}
+        {R(x - 23, y - 15, 46, 1, '#a81f1f')}
+        {R(x - 20, y - 20, 4, 5, '#ffffff')}
+        {R(x - 19, y - 19, 1.5, 4, red)}
+        {R(x - 13, y - 19.5, 24, 1, '#ffffff')}
+        {R(x - 13, y - 17, 18, 1, '#ffffff')}
         {/* Entrada aberta: elevador, cortina, cadeiras e o piso */}
-        {R(x - 14, y - 12, 28, 12, night ? '#4a3a2a' : '#2f2a2a')}
-        {R(x - 12, y - 11, 5, 11, '#c8262b')}
-        {R(x - 9.75, y - 10, 0.5, 10, '#8e1a1e')}
-        {R(x - 12, y - 11, 5, 1, '#e8584f')}
-        {R(x, y - 11, 12, 5, '#b81f24')}
-        {Array.from({ length: 6 }, (_, k) => R(x + 1 + k * 2, y - 11, 0.5, 5, '#8e1a1e'))}
-        {R(x - 5, y - 2, 19, 2, '#d9b98a')}
+        {R(x - 18, y - 14, 36, 14, night ? '#4a3a2a' : '#2f2a2a')}
+        {R(x - 16, y - 13, 6, 13, '#c8262b')}
+        {R(x - 13.25, y - 12, 0.5, 12, '#8e1a1e')}
+        {R(x - 16, y - 13, 6, 1, '#e8584f')}
+        {R(x + 1, y - 13, 15, 6, '#b81f24')}
+        {Array.from({ length: 8 }, (_, k) => R(x + 2 + k * 2, y - 13, 0.5, 6, '#8e1a1e'))}
+        {R(x - 7, y - 2, 24, 2, '#d9b98a')}
         {[0, 1].map((r) => (
-          <g key={r}>{Array.from({ length: 5 }, (_, k) => R(x - 1 + k * 2.6 + r, y - 5 + r * 2, 2, 1.6, '#d42a2a'))}</g>
+          <g key={r}>{Array.from({ length: 6 }, (_, k) => R(x - 2 + k * 2.8 + r, y - 6 + r * 2.5, 2, 1.6, '#d42a2a'))}</g>
         ))}
-        {[x - 10, x - 2, x + 6].map((lx) => R(lx, y - 12, 2, 0.8, '#fff1b8'))}
-        {R(x - 14, y - 12, 28, 12, '#bfe9f2', night ? 0.06 : 0.12)}
+        {[x - 13, x - 3, x + 7].map((lx) => R(lx, y - 14, 2, 0.8, '#fff1b8'))}
+        {R(x - 18, y - 14, 36, 14, '#bfe9f2', night ? 0.06 : 0.12)}
         {/* Pilares de cobogó */}
-        {[x - 17, x + 14].map((px) => (
+        {[x - 22, x + 18].map((px) => (
           <g key={px}>
-            {R(px, y - 12, 3, 12, brick)}
-            {Array.from({ length: 5 }, (_, k) => (
+            {R(px, y - 14, 4, 14, brick)}
+            {Array.from({ length: 6 }, (_, k) => (
               <g key={k}>
-                {R(px + 0.5, y - 11 + k * 2.3, 0.8, 0.8, '#4a2a22')}
-                {R(px + 1.7, y - 11 + k * 2.3 + 1, 0.8, 0.8, '#4a2a22')}
+                {R(px + 0.6, y - 13 + k * 2.2, 0.9, 0.9, '#4a2a22')}
+                {R(px + 2.2, y - 13 + k * 2.2 + 1, 0.9, 0.9, '#4a2a22')}
               </g>
             ))}
           </g>
         ))}
         {/* Cartaz do cinema na calçada */}
-        {R(x + 18, y - 9, 5, 7, INK)}
-        {R(x + 18.5, y - 8.5, 4, 6, '#f2b705')}
-        {R(x + 19, y - 7.5, 3, 2, '#2f5fb3')}
-        {R(x + 19, y - 5, 3, 1, '#d42a2a')}
-        {R(x + 18.5, y - 2, 0.6, 2, INK)}
-        {R(x + 21.9, y - 2, 0.6, 2, INK)}
+        {R(x + 24, y - 9, 5, 7, INK)}
+        {R(x + 24.5, y - 8.5, 4, 6, '#f2b705')}
+        {R(x + 25, y - 7.5, 3, 2, '#2f5fb3')}
+        {R(x + 25, y - 5, 3, 1, '#d42a2a')}
+        {R(x + 24.5, y - 2, 0.6, 2, INK)}
+        {R(x + 27.9, y - 2, 0.6, 2, INK)}
       </g>
     ),
   };
@@ -546,70 +537,62 @@ export function memorialParts(p: Place, glass: string): HouseParts {
 /* ---- Painel do Educandário ---- */
 
 /**
- * O muro baixo de azulejos azuis com as faixas brancas e as pombas, o portão azul de tábuas, o muro
- * de tijolinho, o sobrado bege de telha vermelha lá atrás, o poste com a luminária e a arvorezinha
- * com o protetor de madeira na frente do painel.
+ * O muro alto e comprido de azulejos azuis com as faixas brancas e as pombas, o portão azul de
+ * tábuas, o muro de tijolinho, o poste com a luminária e a arvorezinha com o protetor de madeira
+ * na frente do painel.
  */
 export function painelParts(p: Place, glass: string): HouseParts {
   const { x, y } = p;
   const night = glass === NIGHT;
-  const x0 = x - 18;
+  const x0 = x - 24;
+  const px0 = x0 + 18;
+  const pw = 30;
+  const ph = 17;
   const blue = '#2448a8';
   const body: Part[] = [
-    [x + 4, y - 21, 19, 9, '#efe2c6'],
-    [x + 2, y - 25, 23, 4, '#c4553a'],
-    [x0, y - 11, 8, 11, '#c98a52'],
-    [x0 + 8, y - 12, 9, 12, '#2f5fb3'],
-    [x0 + 17, y - 12, 25, 12, blue],
+    [x0, y - 15, 8, 15, '#c98a52'],
+    [x0 + 8, y - ph, 10, ph, '#2f5fb3'],
+    [px0, y - ph, pw, ph, blue],
   ];
   const doves: [number, number, number][] = [
-    [4, 3.5, 1],
-    [11, 7, 1.2],
-    [17, 3.5, 1],
-    [22, 8, 0.9],
+    [5, 5, 1.3],
+    [13, 10, 1.5],
+    [21, 4.5, 1.3],
+    [26, 11, 1.1],
+    [8, 14, 1],
   ];
   return {
     body,
     details: [],
-    sign: [x - 5, y - 38],
+    sign: [x - 5, y - 34],
     under: (
       <g>
-        {R(x0 - 1, y - 1, 45, 1, '#8d969c')}
+        {R(x0 - 1, y - 1, pw + 20, 1, '#8d969c')}
         {/* Calçada de ladrilho */}
-        {R(x0 - 2, y, 47, 3, '#ddd5c0')}
-        {Array.from({ length: 12 }, (_, k) => R(x0 - 2 + k * 4, y, 0.4, 3, '#b9b2a0'))}
+        {R(x0 - 2, y, pw + 22, 3, '#ddd5c0')}
+        {Array.from({ length: 13 }, (_, k) => R(x0 - 2 + k * 4, y, 0.4, 3, '#b9b2a0'))}
       </g>
     ),
     extra: (
       <g>
-        {/* Telhado de telha do sobrado e as janelas com moldura */}
-        {Array.from({ length: 4 }, (_, i) => R(x + 2 + i * 0.5, y - 25 + i, 23 - i, 1, i % 2 ? '#a8432e' : '#c4553a'))}
-        {Array.from({ length: 8 }, (_, k) => R(x + 3 + k * 3, y - 25, 0.4, 4, '#8e2f27'))}
-        {R(x + 4, y - 21, 19, 1, '#000', 0.15)}
-        {[x + 6, x + 11.5, x + 17].map((wx) => (
-          <g key={wx}>
-            {R(wx - 0.5, y - 19.5, 5, 5, '#f8f4ea')}
-            {R(wx, y - 19, 4, 4, night ? NIGHT : '#5f8a96')}
-            {R(wx + 1.8, y - 19, 0.4, 4, '#f8f4ea')}
-          </g>
-        ))}
         {/* Muro de tijolinho com a tampa clara */}
-        {R(x0, y - 12, 8, 1, '#e9e4da')}
-        {[0, 1, 2, 3].map((r) => R(x0, y - 9 + r * 2.4, 8, 0.4, '#a8623a'))}
-        {[0, 1, 2, 3].map((r) => R(x0 + (r % 2 ? 2 : 5), y - 9 + r * 2.4, 0.4, 2.4, '#a8623a'))}
+        {R(x0, y - 15, 8, 1, '#e9e4da')}
+        {[0, 1, 2, 3, 4].map((r) => R(x0, y - 12 + r * 2.4, 8, 0.4, '#a8623a'))}
+        {[0, 1, 2, 3, 4].map((r) => R(x0 + (r % 2 ? 2 : 5), y - 12 + r * 2.4, 0.4, 2.4, '#a8623a'))}
         {/* Portão azul de tábuas */}
-        {Array.from({ length: 4 }, (_, k) => R(x0 + 9.5 + k * 2, y - 12, 0.5, 12, '#244a8a'))}
-        {R(x0 + 8, y - 12, 9, 0.8, '#5b86d6')}
-        {R(x0 + 15, y - 6, 1, 2, '#c9ced1')}
-        {/* Painel: faixas brancas, rejunte dos azulejos, pombas e a placa */}
-        <path d={`M${x0 + 17} ${y - 3}L${x0 + 26} ${y - 12}L${x0 + 31} ${y - 12}L${x0 + 20} ${y}L${x0 + 17} ${y}Z`} fill="#eef1f8" />
-        <path d={`M${x0 + 33} ${y}L${x0 + 42} ${y - 9}L${x0 + 42} ${y - 4}L${x0 + 38} ${y}Z`} fill="#eef1f8" />
-        {Array.from({ length: 8 }, (_, k) => R(x0 + 17 + k * 3, y - 12, 0.3, 12, '#1a3482', 0.35))}
-        {Array.from({ length: 3 }, (_, k) => R(x0 + 17, y - 9 + k * 3, 25, 0.3, '#1a3482', 0.35))}
-        {Array.from({ length: 14 }, (_, k) => R(x0 + 18 + ((k * 7) % 23), y - 11 + ((k * 5) % 10), 0.5, 0.5, '#c8d4f2'))}
+        {Array.from({ length: 5 }, (_, k) => R(x0 + 9.5 + k * 2, y - ph, 0.5, ph, '#244a8a'))}
+        {R(x0 + 8, y - ph, 10, 0.8, '#5b86d6')}
+        {R(x0 + 16, y - 8, 1, 2, '#c9ced1')}
+        {/* Painel: tampa, faixas brancas, rejunte dos azulejos, pombas e a placa */}
+        <path d={`M${px0} ${y - 4}L${px0 + 12} ${y - ph}L${px0 + 18} ${y - ph}L${px0 + 4} ${y}L${px0} ${y}Z`} fill="#eef1f8" />
+        <path d={`M${px0 + 20} ${y}L${px0 + pw} ${y - 11}L${px0 + pw} ${y - 5}L${px0 + 26} ${y}Z`} fill="#eef1f8" />
+        {Array.from({ length: 10 }, (_, k) => R(px0 + k * 3, y - ph, 0.3, ph, '#1a3482', 0.35))}
+        {Array.from({ length: 5 }, (_, k) => R(px0, y - 14 + k * 3, pw, 0.3, '#1a3482', 0.35))}
+        {Array.from({ length: 18 }, (_, k) => R(px0 + 1 + ((k * 7) % 28), y - 16 + ((k * 5) % 15), 0.5, 0.5, '#c8d4f2'))}
+        {R(px0, y - ph, pw, 0.8, '#e9e4da')}
         {doves.map(([dx, dy, s], i) => {
-          const cx = x0 + 17 + dx;
-          const cy = y - 12 + dy;
+          const cx = px0 + dx;
+          const cy = y - ph + dy;
           return (
             <path
               key={i}
@@ -620,18 +603,18 @@ export function painelParts(p: Place, glass: string): HouseParts {
             />
           );
         })}
-        {R(x0 + 38, y - 3, 3, 2, '#d8dcdf')}
+        {R(px0 + 25, y - 3.5, 3.5, 2.5, '#d8dcdf')}
         {/* Poste com a luminária */}
-        {R(x0 - 3, y - 22, 1.2, 22, '#b9b8b0')}
-        {R(x0 - 5, y - 21, 5, 0.6, '#8d969c')}
-        {R(x0 - 2, y - 17, 3, 0.6, '#8d969c')}
-        {R(x0, y - 16.4, 1.6, 1, night ? '#ffe9a8' : '#e9e4da')}
+        {R(x0 - 3, y - 26, 1.2, 26, '#b9b8b0')}
+        {R(x0 - 5, y - 25, 5, 0.6, '#8d969c')}
+        {R(x0 - 2, y - 21, 3, 0.6, '#8d969c')}
+        {R(x0, y - 20.4, 1.6, 1, night ? '#ffe9a8' : '#e9e4da')}
         {/* Arvorezinha com o protetor de madeira */}
-        {R(x + 6.6, y - 9, 0.6, 9, '#6b4423')}
-        <circle cx={x + 5.5} cy={y - 10} r={2} fill="#4f9a3a" />
-        <circle cx={x + 8.2} cy={y - 9} r={1.8} fill="#3aa655" />
-        <circle cx={x + 6.8} cy={y - 12} r={1.7} fill="#3aa655" />
-        <rect x={x + 5} y={y - 3} width={3.4} height={3} fill="none" stroke="#8a5a2b" strokeWidth={0.5} />
+        {R(x + 8.6, y - 11, 0.6, 11, '#6b4423')}
+        <circle cx={x + 7.5} cy={y - 12} r={2.2} fill="#4f9a3a" />
+        <circle cx={x + 10.4} cy={y - 11} r={2} fill="#3aa655" />
+        <circle cx={x + 8.8} cy={y - 14.5} r={1.9} fill="#3aa655" />
+        <rect x={x + 7} y={y - 3} width={3.4} height={3} fill="none" stroke="#8a5a2b" strokeWidth={0.5} />
       </g>
     ),
   };

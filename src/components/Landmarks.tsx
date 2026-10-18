@@ -45,7 +45,7 @@ export function BridgeDeck({ bx }: { bx: number }) {
   );
 }
 
-/** Letrinhas 3×5 das placas no mapa (hotel, museu, estação). */
+/** Letrinhas 3×5 das placas no mapa (Sicredi, museu, estação). */
 const MINI: Record<string, string[]> = {
   V: ['1.1', '1.1', '1.1', '1.1', '.1.'],
   I: ['1', '1', '1', '1', '1'],
@@ -61,6 +61,7 @@ const MINI: Record<string, string[]> = {
   C: ['111', '1..', '1..', '1..', '111'],
   T: ['111', '.1.', '.1.', '.1.', '.1.'],
   Z: ['111', '..1', '.1.', '1..', '111'],
+  D: ['11.', '1.1', '1.1', '1.1', '11.'],
 };
 
 export function MiniText({ text, x, y, fill }: { text: string; x: number; y: number; fill: string }) {
@@ -78,7 +79,7 @@ export function MiniText({ text, x, y, fill }: { text: string; x: number; y: num
  * Prédio Sicredi (o antigo Grande Hotel Villas) no mapa, em destaque por ser patrocinador: maior que
  * os outros, no canto de cima à direita. Sobrado verde com as pilastras brancas, as janelas em arco
  * (as do meio com sacadinha), as portas brancas, a base de pedra, a cornija, as ameias, a placa
- * "VILLAS" com o enfeite em cima, as bandeirinhas verdes e a placa do Sicredi (acesa à noite).
+ * "SICREDI" com o enfeite em cima, as bandeirinhas verdes e a placa do Sicredi (acesa à noite).
  */
 export function hotelParts(p: Place, glass: string): HouseParts {
   const { x, y } = p;
@@ -151,7 +152,7 @@ export function hotelParts(p: Place, glass: string): HouseParts {
           <rect key={`d${i}`} x={x0 + i * 3} y={y - 33} width={1.5} height={0.8} fill={whiteD} />
         ))}
         {/* Nome na placa e o enfeite de dois laços em cima */}
-        <MiniText text="VILLAS" x={x - 11} y={y - 49} fill={white} />
+        <MiniText text="SICREDI" x={x - 11.5} y={y - 49} fill={white} />
         <circle cx={x - 2} cy={y - 53} r={1.6} fill="none" stroke={white} strokeWidth={0.9} />
         <circle cx={x + 2} cy={y - 53} r={1.6} fill="none" stroke={white} strokeWidth={0.9} />
         {/* Bandeirinhas verdes nas pontas */}

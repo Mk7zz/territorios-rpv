@@ -324,7 +324,7 @@ const NPC_SPOTS = [
   [190, 108],
 ];
 
-const WIDE: Place['kind'][] = ['house', 'hall', 'arena', 'stage', 'mestre', 'museum', 'station', 'chacara', 'memorial', 'painel', 'hotel'];
+const WIDE: Place['kind'][] = ['house', 'hall', 'arena', 'stage', 'mestre', 'museum', 'station', 'chacara', 'cultural', 'memorial', 'painel', 'hotel'];
 
 /** Árvores espalhadas sem invadir caminhos, rio e construções. */
 /** Medidas do terreno usadas para espalhar as árvores (a base do Multiverso ou o mapa do Territórios). */
