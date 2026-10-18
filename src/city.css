@@ -145,7 +145,7 @@ html, body { overscroll-behavior: none; }
 
 /* Logo (fixo, azul e branco como os azulejos) */
 .city-logo { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; }
-.city-logo-name { font-family: 'Pixelify Sans', var(--font-pixel); font-size: 2rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1; color: #ffffff; -webkit-text-stroke: 1.5px #13295a; paint-order: stroke fill; text-shadow: 2px 2px 0 #13295a, -2px 2px 0 #13295a, 2px -2px 0 #13295a, -2px -2px 0 #13295a, 0 5px 0 #13295a, 0 6px 8px rgba(0, 0, 0, 0.35); }
+.city-logo-name { font-family: 'Pixelify Sans', var(--font-pixel); font-size: 2rem; font-weight: 700; letter-spacing: 0.03em; line-height: 1; color: #ffffff; -webkit-text-stroke: 1.5px #13295a; paint-order: stroke fill; text-shadow: 2px 2px 0 #13295a, -2px 2px 0 #13295a, 2px -2px 0 #13295a, -2px -2px 0 #13295a, 0 5px 0 #13295a, 0 6px 8px rgba(0, 0, 0, 0.35); }
 /* Contorno branco justo em volta do logo (sem placa) e a sombra azul do título, para destacar na grama */
 .city-logo-rpv { display: block; height: 62px; width: auto; filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 3px 0 #13295a); }
 .city-logo.big { gap: 24px; }
