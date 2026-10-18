@@ -179,7 +179,7 @@ html, body { overscroll-behavior: none; }
 .start-points { margin: 0; color: #fff; font-family: 'Nunito Sans', var(--font); font-weight: 800; font-size: 1.1rem; text-shadow: 2px 2px 0 var(--line); }
 
 /* ---- Visita ao lugar ---- */
-.visit { position: relative; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: #ddd2b6; color: var(--text); --quiz-h: 220px; }
+.visit { position: relative; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: #ddd2b6; color: var(--text); --quiz-h: 270px; }
 /* A cena ocupa a área acima do quiz; abaixo dela continua a calçada da praça. */
 .visit-scene { position: absolute; top: 0; left: 0; right: 0; bottom: var(--quiz-h); animation: visit-open 1s steps(10) both; }
 /* Nos lugares, a cena vai até o fim da tela: o chão continua por baixo do quadro de perguntas. */
@@ -205,26 +205,28 @@ html, body { overscroll-behavior: none; }
   100% { transform: translate(0, 0); }
 }
 
-.quiz { position: absolute; z-index: 5; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(760px, calc(100% - 24px)); background: #fffdf5; border: 4px solid var(--line); border-radius: 8px; box-shadow: 0 6px 0 var(--line), 0 0 0 4px #fff8e1 inset; padding: 14px; animation: quiz-in 0.35s steps(4) both; }
+.quiz { position: absolute; z-index: 5; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(820px, calc(100% - 24px)); background: #fffdf5; border: 4px solid var(--line); border-radius: 8px; box-shadow: 0 6px 0 var(--line), 0 0 0 4px #fff8e1 inset; padding: 14px; animation: quiz-in 0.35s steps(4) both; }
 @keyframes quiz-in { from { transform: translate(-50%, 40px); opacity: 0; } }
 .quiz-head { display: flex; align-items: center; gap: 12px; }
 .quiz-portrait { flex-shrink: 0; display: grid; place-items: center; padding: 4px; background: #e2f6f5; border: 3px solid var(--line); border-radius: 6px; }
-.quiz-q { flex: 1; margin: 0; font-family: 'Nunito Sans', var(--font); font-weight: 800; font-size: clamp(1.2rem, 2.8vw, 1.7rem); line-height: 1.25; text-transform: uppercase; color: var(--line); }
-.quiz-listen { flex-shrink: 0; width: 54px; height: 54px; font-size: 1.6rem; background: var(--accent); border: 3px solid var(--line); border-radius: 50%; box-shadow: 0 4px 0 var(--line); cursor: pointer; padding: 0; }
+.quiz-q { flex: 1; margin: 0; font-family: 'Nunito Sans', var(--font); font-weight: 800; font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.3; color: var(--line); }
+.quiz-listen { flex-shrink: 0; width: 46px; height: 46px; font-size: 1.3rem; background: var(--accent); border: 3px solid var(--line); border-radius: 50%; box-shadow: 0 4px 0 var(--line); cursor: pointer; padding: 0; }
 .quiz-listen:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--line); }
-.quiz-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
-.quiz-opt { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 110px; padding: 10px 8px; background: #e2f6f5; color: var(--line); border: 4px solid var(--line); border-radius: 8px; box-shadow: 0 6px 0 var(--line); font-family: 'Nunito Sans', var(--font); font-weight: 800; font-size: clamp(1rem, 2.2vw, 1.3rem); line-height: 1.15; text-transform: uppercase; cursor: pointer; animation: quiz-in 0.3s steps(3) both; }
+/* Uma opção por linha: cabe resposta curta ou comprida sem o quadro crescer demais. */
+.quiz-options { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+.quiz-opt { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 7px 14px 7px 10px; background: #e2f6f5; color: var(--line); border: 3px solid var(--line); border-radius: 8px; box-shadow: 0 4px 0 var(--line); font-family: 'Nunito Sans', var(--font); font-weight: 700; font-size: clamp(0.95rem, 1.8vw, 1.05rem); line-height: 1.3; text-align: left; cursor: pointer; animation: quiz-opt-in 0.3s steps(3) both; }
+@keyframes quiz-opt-in { from { transform: translateY(16px); opacity: 0; } }
 .quiz-opt:nth-child(2) { background: #fff6d6; }
 .quiz-opt:nth-child(3) { background: #fde4ea; }
 .quiz-opt:hover:not(:disabled) { filter: brightness(1.05); transform: translateY(-2px); }
-.quiz-opt:active:not(:disabled) { transform: translateY(5px); box-shadow: 0 1px 0 var(--line); }
-.quiz-opt.off { opacity: 0.45; cursor: not-allowed; box-shadow: 0 2px 0 var(--line); transform: translateY(4px); }
-.quiz-emoji { font-size: 2.6rem; line-height: 1; }
+.quiz-opt:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--line); }
+.quiz-opt.off { opacity: 0.45; cursor: not-allowed; box-shadow: 0 1px 0 var(--line); transform: translateY(3px); }
+.quiz-emoji { flex-shrink: 0; width: 2rem; text-align: center; font-size: 1.6rem; line-height: 1; }
 @media (max-width: 560px) {
-  .visit { --quiz-h: 326px; }
-  .quiz-options { grid-template-columns: 1fr; gap: 8px; }
-  .quiz-opt { flex-direction: row; min-height: 60px; justify-content: flex-start; gap: 14px; padding: 8px 14px; }
-  .quiz-emoji { font-size: 2rem; }
+  .visit { --quiz-h: 340px; }
+  .quiz { padding: 10px; }
+  .quiz-opt { gap: 10px; padding: 6px 10px 6px 8px; font-size: 0.9rem; }
+  .quiz-emoji { width: 1.6rem; font-size: 1.35rem; }
   .quiz-portrait { display: none; }
   .visit-back { padding: 6px 10px; font-size: 1rem; }
   .visit-title { display: none; }
@@ -271,13 +273,13 @@ button.visit-dove { left: 6%; top: 34%; background: none; border: 0; padding: 0;
 }
 /* Celular deitado (tela baixa): quiz mais compacto e painéis fora do caminho. */
 @media (max-height: 520px) and (min-width: 561px) {
-  .visit { --quiz-h: 140px; }
+  .visit { --quiz-h: 200px; }
   .quiz { padding: 8px 10px; bottom: 8px; }
-  .quiz-q { font-size: 1.05rem; }
-  .quiz-listen { width: 42px; height: 42px; font-size: 1.2rem; }
-  .quiz-options { gap: 8px; margin-top: 8px; }
-  .quiz-opt { flex-direction: row; min-height: 52px; gap: 8px; font-size: 0.95rem; }
-  .quiz-emoji { font-size: 1.6rem; }
+  .quiz-q { font-size: 0.95rem; }
+  .quiz-listen { width: 38px; height: 38px; font-size: 1.1rem; }
+  .quiz-options { gap: 5px; margin-top: 6px; }
+  .quiz-opt { min-height: 36px; gap: 8px; padding: 4px 10px 4px 8px; font-size: 0.82rem; line-height: 1.2; }
+  .quiz-emoji { width: 1.4rem; font-size: 1.15rem; }
   .quiz-portrait { display: none; }
   .ps-found { left: auto; right: 12px; top: 64px; }
   .ps-found-list { display: none; }
