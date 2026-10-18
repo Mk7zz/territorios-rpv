@@ -40,10 +40,10 @@ São 76 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `ponte/pergunta-1.mp3` | Por que a Ponte Metálica de Cataguases é considerada importante para a história da cidade? |  |  |
-| `ponte/resposta-1.mp3` | Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases. |  |  |
-| `ponte/pergunta-2.mp3` | O que mudou na vida das pessoas depois da construção da Ponte Metálica? |  |  |
-| `ponte/resposta-2.mp3` | Ficou mais fácil de viajar, trabalhar e estudar. |  |  |
+| `ponte/pergunta-1.mp3` | Por que a Ponte Metálica de Cataguases é considerada importante para a história da cidade? | gravada |  |
+| `ponte/resposta-1.mp3` | Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases. | gravada |  |
+| `ponte/pergunta-2.mp3` | O que mudou na vida das pessoas depois da construção da Ponte Metálica? | gravada |  |
+| `ponte/resposta-2.mp3` | Ficou mais fácil de viajar, trabalhar e estudar. | gravada |  |
 
 ### Museu Energisa (pasta `pomba/museu`)
 
