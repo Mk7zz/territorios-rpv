@@ -49,19 +49,19 @@ São 76 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `museu/pergunta-1.mp3` | Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia? |  |  |
-| `museu/resposta-1.mp3` | A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura. |  |  |
-| `museu/pergunta-2.mp3` | Por que é importante conhecer a história da eletricidade em Cataguases? |  |  |
-| `museu/resposta-2.mp3` | Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas. |  |  |
+| `museu/pergunta-1.mp3` | Por que é importante conhecer a história da eletricidade em Cataguases? | gravada |  |
+| `museu/resposta-1.mp3` | Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas. | gravada |  |
+| `museu/pergunta-2.mp3` | Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia? | gravada |  |
+| `museu/resposta-2.mp3` | A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura. | gravada |  |
 
 ### Estação Cataguases (pasta `pomba/estacao`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `estacao/pergunta-1.mp3` | Como a estação ajudou as pessoas a conhecerem novas culturas e costumes? |  |  |
-| `estacao/resposta-1.mp3` | Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições. |  |  |
-| `estacao/pergunta-2.mp3` | O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases? |  |  |
-| `estacao/resposta-2.mp3` | Podemos entender como o trem ajudou no desenvolvimento da cidade. |  |  |
+| `estacao/pergunta-1.mp3` | O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases? | gravada |  |
+| `estacao/resposta-1.mp3` | Podemos entender como o trem ajudou no desenvolvimento da cidade. | gravada |  |
+| `estacao/pergunta-2.mp3` | Como a estação ajudou as pessoas a conhecerem novas culturas e costumes? | gravada |  |
+| `estacao/resposta-2.mp3` | Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições. | gravada |  |
 
 ### Chácara Dona Catarina (pasta `pomba/chacara`)
 
@@ -76,10 +76,10 @@ São 76 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `cultural/pergunta-1.mp3` | O que as crianças podem aprender ao visitar o Centro Cultural Humberto Mauro? |  |  |
-| `cultural/resposta-1.mp3` | Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade. |  |  |
-| `cultural/pergunta-2.mp3` | O que o Humberto Mauro nos ensina sobre o cinema? |  |  |
-| `cultural/resposta-2.mp3` | O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo! |  |  |
+| `cultural/pergunta-1.mp3` | O que as crianças podem aprender ao visitar o Centro Cultural Humberto Mauro? | gravada |  |
+| `cultural/resposta-1.mp3` | Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade. | gravada |  |
+| `cultural/pergunta-2.mp3` | O que o Humberto Mauro nos ensina sobre o cinema? | gravada |  |
+| `cultural/resposta-2.mp3` | O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo! | gravada |  |
 
 ### Memorial Nanzita (pasta `pomba/nanzita`)
 

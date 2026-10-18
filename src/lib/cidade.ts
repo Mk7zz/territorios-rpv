@@ -419,16 +419,6 @@ export const QUESTIONS: Record<string, Question[]> = {
   ],
   museu: [
     {
-      id: 'energia',
-      text: 'Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia?',
-      options: [
-        { text: 'A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura.', emoji: '⚡' },
-        { text: 'A energia elétrica deixou as ruas mais escuras e fez as fábricas pararem de funcionar.', emoji: '🌑' },
-        { text: 'A energia elétrica serviu só para acender as luzinhas da árvore de Natal.', emoji: '🎄' },
-      ],
-      fact: 'A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura.',
-    },
-    {
       id: 'historia',
       text: 'Por que é importante conhecer a história da eletricidade em Cataguases?',
       options: [
@@ -438,18 +428,18 @@ export const QUESTIONS: Record<string, Question[]> = {
       ],
       fact: 'Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas.',
     },
+    {
+      id: 'energia',
+      text: 'Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia?',
+      options: [
+        { text: 'A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura.', emoji: '⚡' },
+        { text: 'A energia elétrica deixou as ruas mais escuras e fez as fábricas pararem de funcionar.', emoji: '🌑' },
+        { text: 'A energia elétrica serviu só para acender as luzinhas da árvore de Natal.', emoji: '🎄' },
+      ],
+      fact: 'A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura.',
+    },
   ],
   estacao: [
-    {
-      id: 'culturas',
-      text: 'Como a estação ajudou as pessoas a conhecerem novas culturas e costumes?',
-      options: [
-        { text: 'Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições.', emoji: '🚂' },
-        { text: 'Porque as pessoas ficavam paradas na estação sem conversar com ninguém.', emoji: '🤐' },
-        { text: 'Porque o trem só levava caixas e nunca levava pessoas.', emoji: '📦' },
-      ],
-      fact: 'Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições.',
-    },
     {
       id: 'aprender',
       text: 'O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases?',
@@ -459,6 +449,16 @@ export const QUESTIONS: Record<string, Question[]> = {
         { text: 'Podemos descobrir como os peixes vivem no fundo do mar.', emoji: '🐟' },
       ],
       fact: 'Podemos entender como o trem ajudou no desenvolvimento da cidade.',
+    },
+    {
+      id: 'culturas',
+      text: 'Como a estação ajudou as pessoas a conhecerem novas culturas e costumes?',
+      options: [
+        { text: 'Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições.', emoji: '🚂' },
+        { text: 'Porque as pessoas ficavam paradas na estação sem conversar com ninguém.', emoji: '🤐' },
+        { text: 'Porque o trem só levava caixas e nunca levava pessoas.', emoji: '📦' },
+      ],
+      fact: 'Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições.',
     },
   ],
   chacara: [
