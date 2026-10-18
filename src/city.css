@@ -221,6 +221,10 @@ html, body { overscroll-behavior: none; }
 .quiz-opt:hover:not(:disabled) { filter: brightness(1.05); transform: translateY(-2px); }
 .quiz-opt:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--line); }
 .quiz-opt.off { opacity: 0.45; cursor: not-allowed; box-shadow: 0 1px 0 var(--line); transform: translateY(3px); }
+/* Depois do erro: a resposta certa fica verde e as outras opções param de responder ao toque. */
+.quiz-opt.right { background: #d4f5c4; border-color: #1b5e2f; box-shadow: 0 4px 0 #1b5e2f; opacity: 1; }
+.quiz-opt:disabled:not(.off):not(.right) { opacity: 0.6; cursor: default; }
+.quiz-next { display: flex; width: fit-content; margin: 10px 0 0 auto; }
 .quiz-emoji { flex-shrink: 0; width: 2rem; text-align: center; font-size: 1.6rem; line-height: 1; }
 @media (max-width: 560px) {
   .visit { --quiz-h: 340px; }

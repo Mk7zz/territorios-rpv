@@ -49,7 +49,8 @@ function Visit({ place }: { place: CityPlace }) {
   const time = useDayTime();
   const [question, setQuestion] = useState(() => nextQuestion(place.id));
   const choices = useMemo<Choice[]>(() => (question ? shuffle(question.options.map((o, i) => ({ ...o, right: i === 0 }))) : []), [question]);
-  const [wrong, setWrong] = useState<string[]>([]);
+  /** Opção errada que a criança marcou: a pergunta acaba e a resposta certa aparece. */
+  const [wrong, setWrong] = useState<string | null>(null);
   const [popup, setPopup] = useState<'oops' | 'win' | null>(null);
   const [earned, setEarned] = useState(0);
   const [points, setPoints] = useState(getPoints);
@@ -75,26 +76,27 @@ function Visit({ place }: { place: CityPlace }) {
   const clips = placeClips(place.id, question);
 
   const pick = (c: Choice) => {
-    if (popup || wrong.includes(c.text)) return;
+    if (popup || wrong) return;
     if (c.right) {
-      const n = wrong.length ? 5 : 10;
+      const n = 10;
       setEarned(n);
       setPoints(addPoints(n));
       setPopup('win');
       sfx('ok');
       say([POMBA_CLIPS.right, clips.fact], POMBA);
     } else {
-      setWrong((w) => [...w, c.text]);
+      // Errou: a fala de erro (de um Mestre) e logo depois a resposta certa, sem tentar de novo.
+      setWrong(c.text);
       setPopup('oops');
       sfx('oops');
-      say([POMBA_CLIPS.wrong], POMBA);
+      say([POMBA_CLIPS.wrong, clips.fact], POMBA);
     }
   };
 
   const another = () => {
     sfx('pop');
     setQuestion(nextQuestion(place.id, question.id));
-    setWrong([]);
+    setWrong(null);
     setPopup(null);
   };
 
@@ -130,29 +132,43 @@ function Visit({ place }: { place: CityPlace }) {
           </div>
           <div className="quiz-options">
             {choices.map((c, i) => {
-              const off = wrong.includes(c.text);
+              const off = wrong === c.text;
+              const shown = !!wrong && c.right;
               return (
-                <button key={c.text} className={`quiz-opt ${off ? 'off' : ''}`} style={{ animationDelay: `${0.1 + i * 0.12}s` }} onClick={() => pick(c)} disabled={off}>
+                <button key={c.text} className={`quiz-opt ${off ? 'off' : ''} ${shown ? 'right' : ''}`} style={{ animationDelay: `${0.1 + i * 0.12}s` }} onClick={() => pick(c)} disabled={!!wrong}>
                   <span className="quiz-emoji" aria-hidden>
-                    {off ? '❌' : c.emoji}
+                    {off ? '❌' : shown ? '✅' : c.emoji}
                   </span>
                   <span>{c.text}</span>
                 </button>
               );
             })}
           </div>
+          {wrong && !popup && (
+            <button className="kid-btn quiz-next" onClick={another}>
+              Outra pergunta ▶
+            </button>
+          )}
         </section>
       )}
 
       {popup === 'oops' && (
-        <div className="kid-modal-backdrop" onClick={() => setPopup(null)}>
-          <div className="kid-modal oops" role="alertdialog" aria-label="Quase! Tente de novo" onClick={(e) => e.stopPropagation()}>
+        <div className="kid-modal-backdrop">
+          <div className="kid-modal oops" role="alertdialog" aria-label="Quase! Veja a resposta certa">
             <GuideSprite className="kid-modal-dove" size={80} flying />
             <h2>Quase! 💪</h2>
-            <p>Não foi dessa vez, mas você consegue. Tente de novo!</p>
-            <button className="kid-btn" onClick={() => (sfx('pop'), setPopup(null))} autoFocus>
-              Tentar de novo
-            </button>
+            <div className="win-fact">
+              <strong>A resposta certa é:</strong>
+              <p>{question.fact}</p>
+            </div>
+            <div className="kid-modal-actions">
+              <button className="kid-btn" onClick={another} autoFocus>
+                Outra pergunta ▶
+              </button>
+              <button className="kid-btn secondary" onClick={() => (sfx('pop'), setPopup(null))}>
+                Ver no quadro
+              </button>
+            </div>
           </div>
         </div>
       )}
