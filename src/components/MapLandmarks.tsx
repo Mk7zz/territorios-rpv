@@ -145,9 +145,9 @@ export function chacaraParts(p: Place, glass: string): HouseParts {
 /* ---- Centro Cultural Humberto Mauro ---- */
 
 /**
- * Prédio de dois andares, mais largo que as casas: a galeria em cima (janelões com os quadros lá
- * dentro), a faixa vermelha com o logo e o nome, e embaixo a entrada aberta mostrando o elevador
- * vermelho, a cortina e as cadeiras do teatro, entre os pilares de cobogó. Cartaz na calçada.
+ * Prédio largo de fachada vermelha com o nome "HUMBERTO MAURO" em letras brancas e, embaixo, a
+ * entrada aberta mostrando o elevador vermelho, a cortina e as cadeiras do teatro, entre os
+ * pilares de cobogó. Cartaz do cinema na calçada.
  */
 export function culturalParts(p: Place, glass: string): HouseParts {
   const { x, y } = p;
@@ -156,36 +156,21 @@ export function culturalParts(p: Place, glass: string): HouseParts {
   const red = '#d42a2a';
   const brick = '#9a5a48';
   const body: Part[] = [
-    [x - 22, y - 38, 44, 38, wall],
-    [x - 23, y - 40, 46, 2, '#cfcdb0'],
+    [x - 23, y - 31, 46, 17, red],
+    [x - 22, y - 14, 44, 14, wall],
   ];
-  const art = ['#d64545', '#2f8fd8', '#f2b705', '#3aa655', '#6b4fa0', '#e8772e', '#2f8fd8', '#d64545'];
   return {
     body,
     details: [],
-    sign: [x - 5, y - 52],
+    sign: [x - 5, y - 44],
     under: R(x - 22, y - 1, 44, 1, '#8d969c'),
     extra: (
       <g>
-        {/* Janelões da galeria com os quadros */}
-        {[x - 20, x + 3].map((wx, i) => (
-          <g key={wx}>
-            {R(wx - 1, y - 36, 19, 13, '#4a5258')}
-            {R(wx, y - 35, 17, 11, night ? '#f3e2b0' : '#e9eef0')}
-            {[0, 1, 2, 3].map((k) => R(wx + 1 + k * 4, y - 32, 3, 3, art[k + i * 4]))}
-            {R(wx, y - 27, 17, 3, night ? '#e9cf8a' : '#d9cdb4')}
-            {R(wx + 8.25, y - 35, 0.5, 11, '#4a5258')}
-            {R(wx, y - 35, 17, 1, '#ffffff', 0.35)}
-          </g>
-        ))}
-        {/* Faixa vermelha com o logo e as letrinhas do nome */}
-        {R(x - 23, y - 21, 46, 7, red)}
-        {R(x - 23, y - 21, 46, 1, '#e8584f')}
+        {/* Fachada vermelha com o nome */}
+        {R(x - 23, y - 31, 46, 1, '#e8584f')}
         {R(x - 23, y - 15, 46, 1, '#a81f1f')}
-        {R(x - 20, y - 20, 4, 5, '#ffffff')}
-        {R(x - 19, y - 19, 1.5, 4, red)}
-        {R(x - 13, y - 19.5, 24, 1, '#ffffff')}
-        {R(x - 13, y - 17, 18, 1, '#ffffff')}
+        <MiniText text="HUMBERTO" x={x - 16.5} y={y - 28} fill={night ? '#fff1b8' : '#ffffff'} />
+        <MiniText text="MAURO" x={x - 10.5} y={y - 21.5} fill={night ? '#fff1b8' : '#ffffff'} />
         {/* Entrada aberta: elevador, cortina, cadeiras e o piso */}
         {R(x - 18, y - 14, 36, 14, night ? '#4a3a2a' : '#2f2a2a')}
         {R(x - 16, y - 13, 6, 13, '#c8262b')}

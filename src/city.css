@@ -144,27 +144,16 @@ html, body { overscroll-behavior: none; }
 .cw-dialogue { position: absolute; z-index: 30; left: calc(12px + env(safe-area-inset-left)); right: calc(12px + env(safe-area-inset-right)); bottom: calc(12px + env(safe-area-inset-bottom)); display: flex; }
 
 /* Logo (fixo, azul e branco como os azulejos) */
-.city-logo { display: inline-flex; align-items: stretch; gap: 0; background: linear-gradient(180deg, #2f5fb3 0%, #1d3f86 100%); border: 3px solid #13295a; border-radius: 10px; box-shadow: 0 4px 0 #13295a, inset 0 2px 0 rgba(255, 255, 255, 0.25); padding: 4px; white-space: nowrap; color: #fff; }
-.city-logo-icon { display: grid; place-items: center; background: #fffdf5; border: 2px solid #13295a; border-radius: 7px; padding: 3px; }
-.city-logo-text { display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 0 12px 0 10px; line-height: 1; font-family: 'Nunito Sans', var(--font); text-transform: uppercase; }
-.city-logo-text strong { font-family: 'Pixelify Sans', var(--font-pixel); font-size: 1.35rem; font-weight: 700; letter-spacing: 0.04em; text-shadow: 2px 2px 0 #13295a; }
-.city-logo-text small { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.22em; color: #ffd76a; }
-.city-logo-rpv { display: grid; place-items: center; background: #ffffff; border: 2px solid #13295a; border-radius: 7px; padding: 2px 6px; }
-.city-logo-rpv img { display: block; width: 46px; height: 42px; object-fit: cover; object-position: right center; }
-.city-logo.big { padding: 8px; border-width: 4px; border-radius: 14px; box-shadow: 0 7px 0 #13295a, inset 0 3px 0 rgba(255, 255, 255, 0.25); }
-.city-logo.big .city-logo-icon { padding: 8px; border-width: 3px; border-radius: 10px; }
-.city-logo.big .city-logo-text { padding: 0 22px 0 16px; }
-.city-logo.big .city-logo-text small { font-size: clamp(0.8rem, 1.8vw, 1.1rem); }
-.city-logo.big .city-logo-text strong { font-size: clamp(2rem, 7vw, 4rem); text-shadow: 3px 3px 0 #13295a; }
-.city-logo.big .city-logo-rpv { padding: 4px 10px; border-width: 3px; border-radius: 10px; }
-.city-logo.big .city-logo-rpv img { width: 92px; height: 84px; }
+.city-logo { display: inline-flex; align-items: center; gap: 12px; background: #ffffff; border: 3px solid #1d3f86; border-radius: 8px; box-shadow: 0 4px 0 #13295a; padding: 4px 8px 4px 14px; white-space: nowrap; color: #1d3f86; }
+.city-logo-name { font-family: 'Pixelify Sans', var(--font-pixel); font-size: 1.35rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; }
+.city-logo-rpv { display: block; width: 46px; height: 40px; object-fit: cover; object-position: right center; padding-left: 12px; border-left: 2px solid #dfe5f0; box-sizing: content-box; }
+.city-logo.big { gap: 20px; padding: 10px 14px 10px 24px; border-width: 4px; border-radius: 12px; box-shadow: 0 7px 0 #13295a; }
+.city-logo.big .city-logo-name { font-size: clamp(2rem, 7vw, 4rem); }
+.city-logo.big .city-logo-rpv { width: 92px; height: 80px; padding-left: 20px; }
 @media (max-width: 600px) {
   .city-top .city-logo { top: 58px; }
-  .city-logo.big .city-logo-icon { display: none; }
-  .city-logo-text { padding: 0 8px 0 7px; }
-  .city-logo-text strong { font-size: 1.05rem; }
-  .city-logo-rpv { padding: 1px 3px; }
-  .city-logo-rpv img { width: 36px; height: 33px; }
+  .city-logo-name { font-size: 1.05rem; }
+  .city-logo-rpv { width: 36px; height: 31px; padding-left: 8px; }
   .cw-prompt { font-size: 1rem; }
 }
 

@@ -45,14 +45,14 @@ export function BridgeDeck({ bx }: { bx: number }) {
   );
 }
 
-/** Letrinhas 3×5 das placas no mapa (Sicredi, museu, estação). */
+/** Letrinhas 3×5 (o M tem 5 de largura) das placas no mapa (Sicredi, museu, estação, Humberto Mauro). */
 const MINI: Record<string, string[]> = {
   V: ['1.1', '1.1', '1.1', '1.1', '.1.'],
   I: ['1', '1', '1', '1', '1'],
   L: ['1..', '1..', '1..', '1..', '111'],
   A: ['111', '1.1', '111', '1.1', '1.1'],
   S: ['111', '1..', '111', '..1', '111'],
-  M: ['1.1', '111', '1.1', '1.1', '1.1'],
+  M: ['1...1', '11.11', '1.1.1', '1...1', '1...1'],
   U: ['1.1', '1.1', '1.1', '1.1', '111'],
   E: ['111', '1..', '11.', '1..', '111'],
   N: ['11.', '1.1', '1.1', '1.1', '1.1'],
@@ -62,6 +62,9 @@ const MINI: Record<string, string[]> = {
   T: ['111', '.1.', '.1.', '.1.', '.1.'],
   Z: ['111', '..1', '.1.', '1..', '111'],
   D: ['11.', '1.1', '1.1', '1.1', '11.'],
+  H: ['1.1', '1.1', '111', '1.1', '1.1'],
+  B: ['11.', '1.1', '11.', '1.1', '11.'],
+  O: ['111', '1.1', '1.1', '1.1', '111'],
 };
 
 export function MiniText({ text, x, y, fill }: { text: string; x: number; y: number; fill: string }) {

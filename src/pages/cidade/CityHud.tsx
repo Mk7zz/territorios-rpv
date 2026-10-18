@@ -13,24 +13,12 @@ export function useCityTitle(title?: string) {
   }, [title]);
 }
 
-/**
- * Placa do jogo no alto do mapa: a bússola dourada, o nome em azul e branco (as cores dos azulejos
- * da Igreja de Santa Rita) com a cidade embaixo e, ao lado, o logo do Rio Pomba Valley
- * (public/rio-pomba-valley.png; o recorte esconde as linhas soltas da borda esquerda).
- */
+/** Placa do jogo no alto do mapa: só o nome e o logo do Rio Pomba Valley (public/rio-pomba-valley.png). */
 export function Logo({ big }: { big?: boolean }) {
   return (
     <span className={`city-logo ${big ? 'big' : ''}`} aria-label={`${APP_NAME} · Rio Pomba Valley`}>
-      <span className="city-logo-icon" aria-hidden>
-        <PixelIcon name="compass" size={big ? 44 : 24} />
-      </span>
-      <span className="city-logo-text">
-        <strong>{APP_NAME}</strong>
-        <small>Cataguases · MG</small>
-      </span>
-      <span className="city-logo-rpv">
-        <img src="/rio-pomba-valley.png" alt="Rio Pomba Valley" />
-      </span>
+      <strong className="city-logo-name">{APP_NAME}</strong>
+      <img className="city-logo-rpv" src="/rio-pomba-valley.png" alt="Rio Pomba Valley" />
     </span>
   );
 }
