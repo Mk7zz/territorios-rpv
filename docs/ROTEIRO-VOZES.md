@@ -1,13 +1,15 @@
 # Roteiro de vozes
 
-> Gerado a partir do jogo (`npm run roteiro -w web`). Não edite à mão: mude a fala no código e gere de novo.
+> Gerado a partir do jogo (`npm run roteiro`). Não edite à mão: mude a fala no código e gere de novo.
 
-São 88 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes: por uma menina e por um menino**. No começo do jogo a criança monta o personagem dela; com personagem menina, o jogo inteiro (Pomba e Mestres) fala com as vozes de menina, e com personagem menino, com as de menino. Não precisa gravar tudo de uma vez: o que ainda não tiver gravação continua sendo lido pela voz do computador (feminina ou masculina, conforme o personagem).
+São 76 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes: por uma menina e por um menino**. No começo do jogo a criança monta o personagem dela; com personagem menina, o jogo inteiro (Pomba e Mestres) fala com as vozes de menina, e com personagem menino, com as de menino. Não precisa gravar tudo de uma vez: o que ainda não tiver gravação continua sendo lido pela voz do computador (feminina ou masculina, conforme o personagem).
 
 ## Como gravar
 
 - **Um arquivo por fala**, com o nome exato da coluna "Arquivo" (ex.: `entrada.mp3`). Vale `.mp3`, `.m4a` (gravador do Windows e iPhone), `.opus` (áudio do WhatsApp), `.ogg` ou `.wav`.
-- A gravação da menina vai em `web/public/vozes/menina/<pasta>/` e a do menino em `web/public/vozes/menino/<pasta>/`. O nome da pasta aparece no título de cada personagem, abaixo.
+- A gravação da menina vai em `public/vozes/menina/<pasta>/` e a do menino em `public/vozes/menino/<pasta>/`. O nome da pasta aparece no título de cada personagem, abaixo.
+- **Pomba:** cada lugar tem a sua pasta dentro de `pomba` (ex.: `public/vozes/menina/pomba/ponte/`), com um áudio da pergunta (`pergunta-1`, `pergunta-2`...) e um da resposta certa (`resposta-1`, `resposta-2`...). O número é a ordem da pergunta no lugar.
+- **Acerto e erro nos lugares:** a Pomba não grava. O jogo toca uma das gravações de acerto ou de erro dos Mestres do Saber, na voz do personagem (menina ou menino).
 - Pode gravar no celular, num lugar silencioso, com o aparelho a um palmo da boca.
 - Fale **devagar e bem claro**: quem escuta também são crianças aprendendo a ler.
 - Deixe só um respiro de silêncio no começo e no fim. Se errar, grave a fala inteira de novo.
@@ -21,108 +23,96 @@ São 88 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `acerto.mp3` | Parabéns! Você acertou! |  |  |
-| `erro.mp3` | Quase! Tente de novo. |  |  |
 | `dica.mp3` | Toque nas coisas para descobrir! |  |  |
 
-### Praça Santa Rita
+### Praça Santa Rita (pasta `pomba/santa-rita`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `santa-rita-nome-praca-pergunta.mp3` | Qual é o nome desta praça? |  |  |
-| `santa-rita-nome-praca-curiosidade.mp3` | Santa Rita! A santa das rosas. |  |  |
-| `santa-rita-torre-cruz-pergunta.mp3` | O que tem no alto da torre? |  |  |
-| `santa-rita-torre-cruz-curiosidade.mp3` | Uma cruz! E lá dentro mora o sino. |  |  |
-| `santa-rita-encontro-pergunta.mp3` | O povo vem na praça pra fazer o quê? |  |  |
-| `santa-rita-encontro-curiosidade.mp3` | Encontrar os amigos! A praça é o coração da cidade. |  |  |
+| `santa-rita/pergunta-1.mp3` | Qual é o nome desta praça? |  |  |
+| `santa-rita/resposta-1.mp3` | Santa Rita! A santa das rosas. |  |  |
+| `santa-rita/pergunta-2.mp3` | O que tem no alto da torre? |  |  |
+| `santa-rita/resposta-2.mp3` | Uma cruz! E lá dentro mora o sino. |  |  |
+| `santa-rita/pergunta-3.mp3` | O povo vem na praça pra fazer o quê? |  |  |
+| `santa-rita/resposta-3.mp3` | Encontrar os amigos! A praça é o coração da cidade. |  |  |
 
-### Ponte Metálica
-
-| Arquivo | Fala | Menina | Menino |
-| --- | --- | --- | --- |
-| `ponte-apelido-pergunta.mp3` | Como o povo chama esta ponte? |  |  |
-| `ponte-apelido-curiosidade.mp3` | Ponte Velha! Ela tem mais de cem anos. |  |  |
-| `ponte-rio-pergunta.mp3` | Qual rio passa embaixo da ponte? |  |  |
-| `ponte-rio-curiosidade.mp3` | O Rio Pomba! |  |  |
-| `ponte-atravessar-pergunta.mp3` | Pra que serve a ponte? |  |  |
-| `ponte-atravessar-curiosidade.mp3` | Pra atravessar o rio! E ela é toda de ferro. |  |  |
-
-### Museu Energisa
+### Ponte Metálica (pasta `pomba/ponte`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `museu-predio-pergunta.mp3` | Antes de ser museu, este prédio era de quê? |  |  |
-| `museu-predio-curiosidade.mp3` | Da energia! O museu guarda a história da luz na cidade. |  |  |
-| `museu-turbina-pergunta.mp3` | Como a água vira energia? |  |  |
-| `museu-turbina-curiosidade.mp3` | Girando a turbina! |  |  |
-| `museu-economizar-pergunta.mp3` | Como a gente economiza energia? |  |  |
-| `museu-economizar-curiosidade.mp3` | Apagando a luz ao sair! |  |  |
+| `ponte/pergunta-1.mp3` | Por que a Ponte Metálica de Cataguases é considerada importante para a história da cidade? |  |  |
+| `ponte/resposta-1.mp3` | Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases. |  |  |
+| `ponte/pergunta-2.mp3` | O que mudou na vida das pessoas depois da construção da Ponte Metálica? |  |  |
+| `ponte/resposta-2.mp3` | Ficou mais fácil de viajar, trabalhar e estudar. |  |  |
 
-### Estação Cataguases
+### Museu Energisa (pasta `pomba/museu`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `estacao-nome-pergunta.mp3` | O que está escrito na estação? |  |  |
-| `estacao-nome-curiosidade.mp3` | Cataguazes, com Z! É o jeito antigo de escrever. |  |  |
-| `estacao-trem-pergunta.mp3` | Quem para na estação? |  |  |
-| `estacao-trem-curiosidade.mp3` | O trem! Ele anda em cima dos trilhos. |  |  |
-| `estacao-cafe-pergunta.mp3` | Antigamente, o trem levava muito o quê? |  |  |
-| `estacao-cafe-curiosidade.mp3` | Café! O trem levava o café pra longe. |  |  |
+| `museu/pergunta-1.mp3` | Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia? |  |  |
+| `museu/resposta-1.mp3` | A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura. |  |  |
+| `museu/pergunta-2.mp3` | Por que é importante conhecer a história da eletricidade em Cataguases? |  |  |
+| `museu/resposta-2.mp3` | Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas. |  |  |
 
-### Chácara Dona Catarina
+### Estação Cataguases (pasta `pomba/estacao`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `chacara-cor-pergunta.mp3` | Qual é a cor da casa da chácara? |  |  |
-| `chacara-cor-curiosidade.mp3` | Laranja, com enfeites brancos! |  |  |
-| `chacara-renda-pergunta.mp3` | O enfeite branco do telhado parece o quê? |  |  |
-| `chacara-renda-curiosidade.mp3` | Uma renda! E ela é feita de madeira. |  |  |
-| `chacara-homenagem-pergunta.mp3` | Este lugar homenageia quem? |  |  |
-| `chacara-homenagem-curiosidade.mp3` | Dona Catarina! Uma personagem famosa de Cataguases. |  |  |
+| `estacao/pergunta-1.mp3` | Como a estação ajudou as pessoas a conhecerem novas culturas e costumes? |  |  |
+| `estacao/resposta-1.mp3` | Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições. |  |  |
+| `estacao/pergunta-2.mp3` | O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases? |  |  |
+| `estacao/resposta-2.mp3` | Podemos entender como o trem ajudou no desenvolvimento da cidade. |  |  |
 
-### Centro Cultural Humberto Mauro
+### Chácara Dona Catarina (pasta `pomba/chacara`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `cultural-cinema-pergunta.mp3` | Humberto Mauro fazia o quê? |  |  |
-| `cultural-cinema-curiosidade.mp3` | Filmes! Ele fez cinema aqui em Cataguases. |  |  |
-| `cultural-cadeiras-pergunta.mp3` | De que cor são as cadeiras do teatro? |  |  |
-| `cultural-cadeiras-curiosidade.mp3` | Vermelhas! E cabe muita gente. |  |  |
-| `cultural-fazer-pergunta.mp3` | O que a gente faz no Centro Cultural? |  |  |
-| `cultural-fazer-curiosidade.mp3` | Vê filmes e arte! E lembra do Humberto Mauro. |  |  |
+| `chacara/pergunta-1.mp3` | Por que a Chácara Catarina é um lugar especial para a cidade? |  |  |
+| `chacara/resposta-1.mp3` | Porque guarda histórias antigas, mostra tradições e é um espaço de encontro para aprender e brincar. |  |  |
+| `chacara/pergunta-2.mp3` | Como a Chácara Catarina ajuda a preservar a história da cidade? |  |  |
+| `chacara/resposta-2.mp3` | Guardando memórias, objetos antigos e mostrando como as pessoas viviam no passado. |  |  |
 
-### Memorial Nanzita
+### Centro Cultural Humberto Mauro (pasta `pomba/cultural`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `nanzita-painel-pergunta.mp3` | O que tem na parede de baixo da casa? |  |  |
-| `nanzita-painel-curiosidade.mp3` | Um painel enorme, feito de azulejos! |  |  |
-| `nanzita-burro-pergunta.mp3` | Que bicho aparece no painel? |  |  |
-| `nanzita-burro-curiosidade.mp3` | Um burrinho, carregando a carga nas costas! |  |  |
-| `nanzita-artista-pergunta.mp3` | Quem morava nesta casa? |  |  |
-| `nanzita-artista-curiosidade.mp3` | A artista Nanzita! Hoje a casa guarda a arte dela. |  |  |
+| `cultural/pergunta-1.mp3` | O que as crianças podem aprender ao visitar o Centro Cultural Humberto Mauro? |  |  |
+| `cultural/resposta-1.mp3` | Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade. |  |  |
+| `cultural/pergunta-2.mp3` | O que o Humberto Mauro nos ensina sobre o cinema? |  |  |
+| `cultural/resposta-2.mp3` | O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo! |  |  |
 
-### Painel do Educandário
+### Memorial Nanzita (pasta `pomba/nanzita`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `educandario-pombas-pergunta.mp3` | Que bicho voa no painel? |  |  |
-| `educandario-pombas-curiosidade.mp3` | Pombas! Brancas e azuis, voando juntas. |  |  |
-| `educandario-azulejo-pergunta.mp3` | Do que é feito o painel? |  |  |
-| `educandario-azulejo-curiosidade.mp3` | De azulejos! Cada quadradinho foi pintado. |  |  |
-| `educandario-parede-pergunta.mp3` | Onde esta obra de arte foi feita? |  |  |
-| `educandario-parede-curiosidade.mp3` | Na parede! A arte faz parte do prédio. |  |  |
+| `nanzita/pergunta-1.mp3` | O que tem na parede de baixo da casa? |  |  |
+| `nanzita/resposta-1.mp3` | Um painel enorme, feito de azulejos! |  |  |
+| `nanzita/pergunta-2.mp3` | Que bicho aparece no painel? |  |  |
+| `nanzita/resposta-2.mp3` | Um burrinho, carregando a carga nas costas! |  |  |
+| `nanzita/pergunta-3.mp3` | Quem morava nesta casa? |  |  |
+| `nanzita/resposta-3.mp3` | A artista Nanzita! Hoje a casa guarda a arte dela. |  |  |
 
-### Prédio Sicredi
+### Painel do Educandário (pasta `pomba/educandario`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `sicredi-hotel-pergunta.mp3` | Hoje é o Sicredi. E antes, o que era? |  |  |
-| `sicredi-hotel-curiosidade.mp3` | Um hotel! O Grande Hotel Villas. |  |  |
-| `sicredi-cor-pergunta.mp3` | Qual é a cor do prédio? |  |  |
-| `sicredi-cor-curiosidade.mp3` | Verde, com enfeites brancos! |  |  |
-| `sicredi-centro-pergunta.mp3` | Onde fica o prédio do Sicredi? |  |  |
-| `sicredi-centro-curiosidade.mp3` | No centro da cidade! Todo mundo repara nele. |  |  |
+| `educandario/pergunta-1.mp3` | Que bicho voa no painel? |  |  |
+| `educandario/resposta-1.mp3` | Pombas! Brancas e azuis, voando juntas. |  |  |
+| `educandario/pergunta-2.mp3` | Do que é feito o painel? |  |  |
+| `educandario/resposta-2.mp3` | De azulejos! Cada quadradinho foi pintado. |  |  |
+| `educandario/pergunta-3.mp3` | Onde esta obra de arte foi feita? |  |  |
+| `educandario/resposta-3.mp3` | Na parede! A arte faz parte do prédio. |  |  |
+
+### Prédio Sicredi (pasta `pomba/sicredi`)
+
+| Arquivo | Fala | Menina | Menino |
+| --- | --- | --- | --- |
+| `sicredi/pergunta-1.mp3` | Hoje é o Sicredi. E antes, o que era? |  |  |
+| `sicredi/resposta-1.mp3` | Um hotel! O Grande Hotel Villas. |  |  |
+| `sicredi/pergunta-2.mp3` | Qual é a cor do prédio? |  |  |
+| `sicredi/resposta-2.mp3` | Verde, com enfeites brancos! |  |  |
+| `sicredi/pergunta-3.mp3` | Onde fica o prédio do Sicredi? |  |  |
+| `sicredi/resposta-3.mp3` | No centro da cidade! Todo mundo repara nele. |  |  |
 
 ## Seu Zico (pasta `seu-zico`)
 

@@ -397,162 +397,112 @@ export const QUESTIONS: Record<string, Question[]> = {
   ],
   ponte: [
     {
-      id: 'apelido',
-      text: 'Como o povo chama esta ponte?',
+      id: 'historia',
+      text: 'Por que a Ponte Metálica de Cataguases é considerada importante para a história da cidade?',
       options: [
-        { text: 'Ponte Velha', emoji: '🌉' },
-        { text: 'Ponte do Arco-Íris', emoji: '🌈' },
-        { text: 'Ponte de Chocolate', emoji: '🍫' },
+        { text: 'Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases.', emoji: '🌉' },
+        { text: 'Porque ela foi feita só para enfeitar o rio e ninguém nunca passou por ela.', emoji: '🎀' },
+        { text: 'Porque era lá que as crianças da cidade guardavam os seus brinquedos.', emoji: '🧸' },
       ],
-      fact: 'Ponte Velha! Ela tem mais de cem anos.',
+      fact: 'Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases.',
     },
     {
-      id: 'rio',
-      text: 'Qual rio passa embaixo da ponte?',
+      id: 'mudou',
+      text: 'O que mudou na vida das pessoas depois da construção da Ponte Metálica?',
       options: [
-        { text: 'Rio Pomba', emoji: '🏞️' },
-        { text: 'Rio Amazonas', emoji: '🐊' },
-        { text: 'Rio Nilo', emoji: '🐫' },
+        { text: 'Ficou mais fácil de viajar, trabalhar e estudar.', emoji: '🚶' },
+        { text: 'As pessoas pararam de sair de casa.', emoji: '🏠' },
+        { text: 'O rio secou e virou uma estrada.', emoji: '🏜️' },
       ],
-      fact: 'O Rio Pomba!',
-    },
-    {
-      id: 'atravessar',
-      text: 'Pra que serve a ponte?',
-      options: [
-        { text: 'Pra atravessar o rio', emoji: '🚶' },
-        { text: 'Pra guardar brinquedos', emoji: '🧸' },
-        { text: 'Pra tomar banho', emoji: '🛁' },
-      ],
-      fact: 'Pra atravessar o rio! E ela é toda de ferro.',
+      fact: 'Ficou mais fácil de viajar, trabalhar e estudar.',
     },
   ],
   museu: [
     {
-      id: 'predio',
-      text: 'Antes de ser museu, este prédio era de quê?',
+      id: 'energia',
+      text: 'Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia?',
       options: [
-        { text: 'Da energia elétrica', emoji: '⚡' },
-        { text: 'De um circo', emoji: '🎪' },
-        { text: 'De uma padaria', emoji: '🥖' },
+        { text: 'A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura.', emoji: '⚡' },
+        { text: 'A energia elétrica deixou as ruas mais escuras e fez as fábricas pararem de funcionar.', emoji: '🌑' },
+        { text: 'A energia elétrica serviu só para acender as luzinhas da árvore de Natal.', emoji: '🎄' },
       ],
-      fact: 'Da energia! O museu guarda a história da luz na cidade.',
+      fact: 'A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura.',
     },
     {
-      id: 'turbina',
-      text: 'Como a água vira energia?',
+      id: 'historia',
+      text: 'Por que é importante conhecer a história da eletricidade em Cataguases?',
       options: [
-        { text: 'Girando uma turbina', emoji: '🌀' },
-        { text: 'Esquentando no fogão', emoji: '🔥' },
-        { text: 'Virando gelo', emoji: '🧊' },
+        { text: 'Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas.', emoji: '💡' },
+        { text: 'Porque assim a gente nunca mais vai precisar usar energia.', emoji: '🔌' },
+        { text: 'Porque a eletricidade só existe dentro do museu.', emoji: '🏛️' },
       ],
-      fact: 'Girando a turbina!',
-    },
-    {
-      id: 'economizar',
-      text: 'Como a gente economiza energia?',
-      options: [
-        { text: 'Apagar a luz ao sair', emoji: '💡' },
-        { text: 'Deixar a TV ligada', emoji: '📺' },
-        { text: 'Abrir a geladeira toda hora', emoji: '🧊' },
-      ],
-      fact: 'Apagando a luz ao sair!',
+      fact: 'Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas.',
     },
   ],
   estacao: [
     {
-      id: 'nome',
-      text: 'O que está escrito na estação?',
+      id: 'culturas',
+      text: 'Como a estação ajudou as pessoas a conhecerem novas culturas e costumes?',
       options: [
-        { text: 'Cataguazes', emoji: '🚉' },
-        { text: 'Paris', emoji: '🗼' },
-        { text: 'Lua', emoji: '🌙' },
+        { text: 'Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições.', emoji: '🚂' },
+        { text: 'Porque as pessoas ficavam paradas na estação sem conversar com ninguém.', emoji: '🤐' },
+        { text: 'Porque o trem só levava caixas e nunca levava pessoas.', emoji: '📦' },
       ],
-      fact: 'Cataguazes, com Z! É o jeito antigo de escrever.',
+      fact: 'Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições.',
     },
     {
-      id: 'trem',
-      text: 'Quem para na estação?',
+      id: 'aprender',
+      text: 'O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases?',
       options: [
-        { text: 'O trem', emoji: '🚂' },
-        { text: 'O barco', emoji: '⛵' },
-        { text: 'O avião', emoji: '✈️' },
+        { text: 'Podemos entender como o trem ajudou no desenvolvimento da cidade.', emoji: '🏙️' },
+        { text: 'Podemos aprender a pilotar um avião.', emoji: '✈️' },
+        { text: 'Podemos descobrir como os peixes vivem no fundo do mar.', emoji: '🐟' },
       ],
-      fact: 'O trem! Ele anda em cima dos trilhos.',
-    },
-    {
-      id: 'cafe',
-      text: 'Antigamente, o trem levava muito o quê?',
-      options: [
-        { text: 'Café', emoji: '☕' },
-        { text: 'Sorvete', emoji: '🍦' },
-        { text: 'Pinguim', emoji: '🐧' },
-      ],
-      fact: 'Café! O trem levava o café pra longe.',
+      fact: 'Podemos entender como o trem ajudou no desenvolvimento da cidade.',
     },
   ],
   chacara: [
     {
-      id: 'cor',
-      text: 'Qual é a cor da casa da chácara?',
+      id: 'especial',
+      text: 'Por que a Chácara Catarina é um lugar especial para a cidade?',
       options: [
-        { text: 'Laranja', emoji: '🟠' },
-        { text: 'Azul', emoji: '🔵' },
-        { text: 'Preta', emoji: '⚫' },
+        { text: 'Porque guarda histórias antigas, mostra tradições e é um espaço de encontro para aprender e brincar.', emoji: '🏡' },
+        { text: 'Porque é uma loja que vende roupas e sapatos novos.', emoji: '👕' },
+        { text: 'Porque é o lugar onde os carros da cidade ficam estacionados.', emoji: '🚗' },
       ],
-      fact: 'Laranja, com enfeites brancos!',
+      fact: 'Porque guarda histórias antigas, mostra tradições e é um espaço de encontro para aprender e brincar.',
     },
     {
-      id: 'renda',
-      text: 'O enfeite branco do telhado parece o quê?',
+      id: 'preservar',
+      text: 'Como a Chácara Catarina ajuda a preservar a história da cidade?',
       options: [
-        { text: 'Uma renda', emoji: '🤍' },
-        { text: 'Um peixe', emoji: '🐟' },
-        { text: 'Uma bola', emoji: '⚽' },
+        { text: 'Guardando memórias, objetos antigos e mostrando como as pessoas viviam no passado.', emoji: '📜' },
+        { text: 'Jogando fora tudo o que é velho e antigo.', emoji: '🗑️' },
+        { text: 'Trocando as casas antigas por prédios novos.', emoji: '🏗️' },
       ],
-      fact: 'Uma renda! E ela é feita de madeira.',
-    },
-    {
-      id: 'homenagem',
-      text: 'Este lugar homenageia quem?',
-      options: [
-        { text: 'Dona Catarina', emoji: '👵' },
-        { text: 'Papai Noel', emoji: '🎅' },
-        { text: 'Um dragão', emoji: '🐉' },
-      ],
-      fact: 'Dona Catarina! Uma personagem famosa de Cataguases.',
+      fact: 'Guardando memórias, objetos antigos e mostrando como as pessoas viviam no passado.',
     },
   ],
   cultural: [
     {
+      id: 'aprender',
+      text: 'O que as crianças podem aprender ao visitar o Centro Cultural Humberto Mauro?',
+      options: [
+        { text: 'Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade.', emoji: '🎭' },
+        { text: 'Elas podem aprender a consertar carros e motos.', emoji: '🔧' },
+        { text: 'Elas aprendem só a fazer bolos e doces para vender.', emoji: '🎂' },
+      ],
+      fact: 'Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade.',
+    },
+    {
       id: 'cinema',
-      text: 'Humberto Mauro fazia o quê?',
+      text: 'O que o Humberto Mauro nos ensina sobre o cinema?',
       options: [
-        { text: 'Filmes', emoji: '🎬' },
-        { text: 'Bolos', emoji: '🎂' },
-        { text: 'Carros', emoji: '🚗' },
+        { text: 'O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo!', emoji: '🎬' },
+        { text: 'Que o cinema serve só para comer pipoca no escuro.', emoji: '🍿' },
+        { text: 'Que os filmes devem ser vistos escondidos, por uma pessoa só.', emoji: '🙈' },
       ],
-      fact: 'Filmes! Ele fez cinema aqui em Cataguases.',
-    },
-    {
-      id: 'cadeiras',
-      text: 'De que cor são as cadeiras do teatro?',
-      options: [
-        { text: 'Vermelhas', emoji: '🔴' },
-        { text: 'Verdes', emoji: '🟢' },
-        { text: 'Amarelas', emoji: '🟡' },
-      ],
-      fact: 'Vermelhas! E cabe muita gente.',
-    },
-    {
-      id: 'fazer',
-      text: 'O que a gente faz no Centro Cultural?',
-      options: [
-        { text: 'Vê filmes e arte', emoji: '🎨' },
-        { text: 'Conserta carro', emoji: '🔧' },
-        { text: 'Corta cabelo', emoji: '💇' },
-      ],
-      fact: 'Vê filmes e arte! E lembra do Humberto Mauro.',
+      fact: 'O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo!',
     },
   ],
   nanzita: [
@@ -887,38 +837,44 @@ export function say(parts: Clip[], who = 'narrador') {
   const mine = turn;
   const next = (i: number) => {
     if (mine !== turn || i >= parts.length) return;
-    const { id, text } = parts[i];
+    const { id, text, alts = [] } = parts[i];
     const speakIt = () => tts(text, who, () => next(i + 1));
-    if (!id) return speakIt();
-    const folder = `${heroGender()}/${who}`;
-    const base = `/vozes/${folder}/${id}`;
-    const exts = foundExt[folder] ? [foundExt[folder], ...AUDIO_EXT.filter((e) => e !== foundExt[folder])] : AUDIO_EXT;
-    const tryExt = (k: number) => {
+    // A própria gravação primeiro e depois as alternativas (de outras pastas); sem nenhuma, a voz do navegador.
+    const files = [...(id ? [{ who, id }] : []), ...alts].map((c) => ({ folder: `${heroGender()}/${c.who}`, id: c.id }));
+    const tryFile = (j: number) => {
       if (mine !== turn) return;
-      if (k >= exts.length) return speakIt();
-      const url = `${base}.${exts[k]}`;
-      if (missing.has(url)) return tryExt(k + 1);
-      const audio = new Audio(url);
-      playing = audio;
-      let failed = false;
-      const fail = () => {
-        if (failed || mine !== turn) return;
-        failed = true;
-        missing.add(url);
-        tryExt(k + 1);
+      if (j >= files.length) return speakIt();
+      const { folder } = files[j];
+      const base = `/vozes/${folder}/${files[j].id}`;
+      const exts = foundExt[folder] ? [foundExt[folder], ...AUDIO_EXT.filter((e) => e !== foundExt[folder])] : AUDIO_EXT;
+      const tryExt = (k: number) => {
+        if (mine !== turn) return;
+        if (k >= exts.length) return tryFile(j + 1);
+        const url = `${base}.${exts[k]}`;
+        if (missing.has(url)) return tryExt(k + 1);
+        const audio = new Audio(url);
+        playing = audio;
+        let failed = false;
+        const fail = () => {
+          if (failed || mine !== turn) return;
+          failed = true;
+          missing.add(url);
+          tryExt(k + 1);
+        };
+        audio.onended = () => next(i + 1);
+        audio.onerror = fail;
+        audio.play().then(
+          () => (foundExt[folder] = exts[k]),
+          (e: unknown) => {
+            // Navegador bloqueou o som antes do primeiro toque (NotAllowed) ou a fala foi
+            // interrompida por outra (Abort): a gravação existe, não é para cair na voz do navegador.
+            if (!(e instanceof DOMException && (e.name === 'NotAllowedError' || e.name === 'AbortError'))) fail();
+          },
+        );
       };
-      audio.onended = () => next(i + 1);
-      audio.onerror = fail;
-      audio.play().then(
-        () => (foundExt[folder] = exts[k]),
-        (e: unknown) => {
-          // Navegador bloqueou o som antes do primeiro toque (NotAllowed) ou a fala foi
-          // interrompida por outra (Abort): a gravação existe, não é para cair na voz do navegador.
-          if (!(e instanceof DOMException && (e.name === 'NotAllowedError' || e.name === 'AbortError'))) fail();
-        },
-      );
+      tryExt(0);
     };
-    tryExt(0);
+    tryFile(0);
   };
   next(0);
 }

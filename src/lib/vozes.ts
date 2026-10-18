@@ -9,17 +9,20 @@
  * não foi gravado continua funcionando.
  *
  * Por mestre: 1 fala de entrada, de acerto e de erro e, para cada pergunta dele, a pergunta e a
- * curiosidade. A Pomba (pasta `pomba`) tem 3 falas comuns e, para cada pergunta de cada ponto
- * focal, a pergunta e a curiosidade (`<lugar>-<pergunta>-pergunta`).
- * O roteiro sai de `npm run roteiro -w web` (docs/ROTEIRO-VOZES.md). Mudou o texto, regrave.
+ * curiosidade. A Pomba (pasta `pomba`) tem uma pasta por ponto focal e, nela, a pergunta e a
+ * resposta de cada pergunta (`pomba/<lugar>/pergunta-1`, `pomba/<lugar>/resposta-1`...). No acerto e
+ * no erro dos pontos focais, a Pomba reaproveita as gravações de acerto e erro dos Mestres do Saber.
+ * O roteiro sai de `npm run roteiro` (docs/ROTEIRO-VOZES.md). Mudou o texto, regrave.
  */
 import { CITY_INFO, MASTER_PLACES, QUESTIONS, type Question } from './cidade';
 import type { Master } from './world';
 
 export interface Clip {
-  /** Nome do arquivo (sem .mp3). Sem nome, a fala é sempre lida pela voz do navegador. */
+  /** Nome do arquivo (sem .mp3), podendo ter subpasta. Sem nome, a fala é lida pela voz do navegador. */
   id?: string;
   text: string;
+  /** Gravações de outras pastas para tentar, em ordem, quando esta não existe (antes da voz do navegador). */
+  alts?: { who: string; id: string }[];
 }
 
 /** O que o mestre diz quando a criança entra na casa. */
@@ -39,27 +42,44 @@ export function questionClips(q: Question) {
 /** Pasta das falas da Pomba, que narra os pontos focais. */
 export const POMBA = 'pomba';
 
-/** Falas comuns da Pomba em todos os pontos focais. */
-export const POMBA_CLIPS = {
-  right: { id: 'acerto', text: 'Parabéns! Você acertou!' },
-  wrong: { id: 'erro', text: 'Quase! Tente de novo.' },
-  /** Dica falada ao tocar na pomba (o balão mostra a dica certinha de cada coisa). */
-  tip: { id: 'dica', text: 'Toque nas coisas para descobrir!' },
-} satisfies Record<string, Clip>;
+/** Mestres do Saber cujas gravações de acerto e erro a Pomba reaproveita nos pontos focais. */
+const MESTRES = ['sektor', 'dona-rosa', 'seu-zico'];
 
-/** Pergunta e curiosidade de um ponto focal, na voz da Pomba. */
+/** Gravações de acerto ou de erro de todos os Mestres, embaralhadas (a primeira que existir toca). */
+function mestreAlts(kind: 'acerto' | 'erro') {
+  const all = MESTRES.flatMap((who) => {
+    const m = MASTER_PLACES[who].master!;
+    return (kind === 'acerto' ? m.right : m.wrong).map((_, k) => ({ who, id: `${kind}-${k + 1}` }));
+  });
+  return all.sort(() => Math.random() - 0.5);
+}
+
+/** Falas comuns da Pomba em todos os pontos focais. Acerto e erro tocam a voz de um Mestre do Saber. */
+export const POMBA_CLIPS = {
+  get right(): Clip {
+    return { text: 'Parabéns! Você acertou!', alts: mestreAlts('acerto') };
+  },
+  get wrong(): Clip {
+    return { text: 'Quase! Tente de novo.', alts: mestreAlts('erro') };
+  },
+  /** Dica falada ao tocar na pomba (o balão mostra a dica certinha de cada coisa). */
+  tip: { id: 'dica', text: 'Toque nas coisas para descobrir!' } as Clip,
+};
+
+/** Pergunta e resposta de um ponto focal, na voz da Pomba (`pomba/<lugar>/pergunta-1`...). */
 export function placeClips(placeId: string, q: Question) {
+  const n = (QUESTIONS[placeId] ?? []).findIndex((x) => x.id === q.id) + 1;
   return {
-    ask: { id: `${placeId}-${q.id}-pergunta`, text: q.text } as Clip,
-    fact: { id: `${placeId}-${q.id}-curiosidade`, text: q.fact } as Clip,
+    ask: { id: `${placeId}/pergunta-${n}`, text: q.text } as Clip,
+    fact: { id: `${placeId}/resposta-${n}`, text: q.fact } as Clip,
   };
 }
 
-/** Todas as falas da Pomba, em blocos, para o roteiro de gravação. */
+/** Falas da Pomba, em blocos, para o roteiro de gravação (acerto e erro vêm dos Mestres). */
 export function pombaClips(): { title: string; clips: Clip[] }[] {
   return [
-    { title: 'Em todos os lugares', clips: [POMBA_CLIPS.right, POMBA_CLIPS.wrong, POMBA_CLIPS.tip] },
-    ...Object.values(CITY_INFO).map((p) => ({ title: p.title, clips: (QUESTIONS[p.id] ?? []).flatMap((q) => Object.values(placeClips(p.id, q))) })),
+    { title: 'Em todos os lugares', clips: [POMBA_CLIPS.tip] },
+    ...Object.values(CITY_INFO).map((p) => ({ title: `${p.title} (pasta \`pomba/${p.id}\`)`, clips: (QUESTIONS[p.id] ?? []).flatMap((q) => Object.values(placeClips(p.id, q))) })),
   ];
 }
 
