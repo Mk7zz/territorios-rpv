@@ -41,7 +41,7 @@ const parts: string[] = [
   '',
   '> Gerado a partir do jogo (`npm run roteiro`). Não edite à mão: mude a fala no código e gere de novo.',
   '',
-  `São ${total} falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes: por uma menina e por um menino**. No começo do jogo a criança monta o personagem dela; com personagem menina, o jogo inteiro (Pomba e Mestres) fala com as vozes de menina, e com personagem menino, com as de menino. Não precisa gravar tudo de uma vez: o que ainda não tiver gravação continua sendo lido pela voz do computador (feminina ou masculina, conforme o personagem).`,
+  `São ${total} falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes: por uma menina e por um menino**. No começo do jogo a criança monta o personagem dela; com personagem menina, o jogo inteiro (Pomba e Mestres) fala com as vozes de menina, e com personagem menino, com as de menino. Não precisa gravar tudo de uma vez: o que ainda não tiver gravação fica só no texto da tela, em silêncio.`,
   '',
   '## Como gravar',
   '',
@@ -52,7 +52,7 @@ const parts: string[] = [
   '- Pode gravar no celular, num lugar silencioso, com o aparelho a um palmo da boca.',
   '- Fale **devagar e bem claro**: quem escuta também são crianças aprendendo a ler.',
   '- Deixe só um respiro de silêncio no começo e no fim. Se errar, grave a fala inteira de novo.',
-  '- Enquanto uma fala não tem gravação, o jogo usa a **voz de IA** dela (`public/vozes/ia/`, gerada por `npm run vozes-ia`). A gravação da criança sempre passa na frente.',
+  '- Enquanto uma fala não tem gravação, ela fica **em silêncio** (só o texto na tela). A voz de IA de todas as falas já está pronta em `public/vozes/ia/` e liga com `VOZ_IA = true` em `src/lib/cidade.ts`; a gravação da criança sempre passa na frente.',
   '- Os emojis foram tirados do roteiro. As colunas "Menina" e "Menino" mostram o que já está em cada pasta.',
   '',
 ];

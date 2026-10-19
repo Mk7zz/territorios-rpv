@@ -841,11 +841,18 @@ if (typeof window !== 'undefined') {
 }
 
 /**
+ * Falas sem gravação das crianças: com VOZ_IA, tocam a voz de IA (public/vozes/ia/); com
+ * VOZ_NAVEGADOR, a voz do navegador lê. Com as duas desligadas, essas falas ficam em silêncio.
+ */
+const VOZ_IA = false;
+const VOZ_NAVEGADOR = false;
+
+/**
  * Fala uma sequência de trechos. Para cada trecho, toca a primeira que existir, na voz do personagem
  * da criança (public/vozes/<menina|menino>/...; veja lib/vozes.ts):
  *  1. a gravação de `who` (`id`) e, depois, as alternativas do trecho (`alts`, de outras pastas);
- *  2. a voz de IA das mesmas falas (public/vozes/ia/..., gerada por `npm run vozes-ia`);
- *  3. por último, a voz do navegador.
+ *  2. a voz de IA das mesmas falas (public/vozes/ia/..., gerada por `npm run vozes-ia`), se VOZ_IA;
+ *  3. por último, a voz do navegador, se VOZ_NAVEGADOR; senão, passa para o próximo trecho.
  */
 export function say(parts: Clip[], who = 'narrador') {
   stopVoice();
@@ -854,10 +861,10 @@ export function say(parts: Clip[], who = 'narrador') {
   const next = (i: number) => {
     if (mine !== turn || i >= parts.length) return;
     const { id, text, alts = [] } = parts[i];
-    const speakIt = () => tts(text, who, () => next(i + 1));
+    const speakIt = () => (VOZ_NAVEGADOR ? tts(text, who, () => next(i + 1)) : next(i + 1));
     const g = heroGender();
     const own = [...(id ? [{ who, id }] : []), ...alts].map((c) => `${g}/${c.who}/${c.id}`);
-    const keys = [...own, ...own.map((k) => `ia/${k}`)];
+    const keys = VOZ_IA ? [...own, ...own.map((k) => `ia/${k}`)] : own;
     // Arquivos a tentar: pela lista, só os que existem; sem a lista, cada formato aceito (a IA é sempre .mp3).
     const list = audioList;
     const urls = list
