@@ -827,9 +827,25 @@ export function stopVoice() {
 const AUDIO_EXT = ['mp3', 'm4a', 'opus', 'ogg', 'wav'];
 
 /**
- * Fala uma sequência de trechos. Cada trecho com `id` toca a gravação de `who` na voz do
- * personagem da criança (web/public/vozes/<menina|menino>/<who>/<id>.mp3, ou .m4a/.opus/.ogg/.wav;
- * veja lib/vozes.ts); sem gravação, a voz do navegador lê.
+ * Lista dos áudios que existem (public/vozes/arquivos.json, gerada no build): caminho sem extensão
+ * → extensão. Com ela, o jogo vai direto no arquivo certo; sem ela (ainda carregando), testa os formatos.
+ */
+let audioList: Record<string, string> | null = null;
+if (typeof window !== 'undefined') {
+  fetch('/vozes/arquivos.json')
+    .then((r) => (r.ok ? r.json() : null))
+    .then(
+      (j) => (audioList = j),
+      () => {},
+    );
+}
+
+/**
+ * Fala uma sequência de trechos. Para cada trecho, toca a primeira que existir, na voz do personagem
+ * da criança (public/vozes/<menina|menino>/...; veja lib/vozes.ts):
+ *  1. a gravação de `who` (`id`) e, depois, as alternativas do trecho (`alts`, de outras pastas);
+ *  2. a voz de IA das mesmas falas (public/vozes/ia/..., gerada por `npm run vozes-ia`);
+ *  3. por último, a voz do navegador.
  */
 export function say(parts: Clip[], who = 'narrador') {
   stopVoice();
@@ -839,42 +855,44 @@ export function say(parts: Clip[], who = 'narrador') {
     if (mine !== turn || i >= parts.length) return;
     const { id, text, alts = [] } = parts[i];
     const speakIt = () => tts(text, who, () => next(i + 1));
-    // A própria gravação primeiro e depois as alternativas (de outras pastas); sem nenhuma, a voz do navegador.
-    const files = [...(id ? [{ who, id }] : []), ...alts].map((c) => ({ folder: `${heroGender()}/${c.who}`, id: c.id }));
-    const tryFile = (j: number) => {
+    const g = heroGender();
+    const own = [...(id ? [{ who, id }] : []), ...alts].map((c) => `${g}/${c.who}/${c.id}`);
+    const keys = [...own, ...own.map((k) => `ia/${k}`)];
+    // Arquivos a tentar: pela lista, só os que existem; sem a lista, cada formato aceito (a IA é sempre .mp3).
+    const list = audioList;
+    const urls = list
+      ? keys.filter((k) => list[k]).map((k) => `/vozes/${k}.${list[k]}`)
+      : keys.flatMap((k) => {
+          const folder = k.slice(0, k.lastIndexOf('/'));
+          const exts = k.startsWith('ia/') ? ['mp3'] : foundExt[folder] ? [foundExt[folder], ...AUDIO_EXT.filter((e) => e !== foundExt[folder])] : AUDIO_EXT;
+          return exts.map((e) => `/vozes/${k}.${e}`);
+        });
+    const tryUrl = (j: number) => {
       if (mine !== turn) return;
-      if (j >= files.length) return speakIt();
-      const { folder } = files[j];
-      const base = `/vozes/${folder}/${files[j].id}`;
-      const exts = foundExt[folder] ? [foundExt[folder], ...AUDIO_EXT.filter((e) => e !== foundExt[folder])] : AUDIO_EXT;
-      const tryExt = (k: number) => {
-        if (mine !== turn) return;
-        if (k >= exts.length) return tryFile(j + 1);
-        const url = `${base}.${exts[k]}`;
-        if (missing.has(url)) return tryExt(k + 1);
-        const audio = new Audio(url);
-        playing = audio;
-        let failed = false;
-        const fail = () => {
-          if (failed || mine !== turn) return;
-          failed = true;
-          missing.add(url);
-          tryExt(k + 1);
-        };
-        audio.onended = () => next(i + 1);
-        audio.onerror = fail;
-        audio.play().then(
-          () => (foundExt[folder] = exts[k]),
-          (e: unknown) => {
-            // Navegador bloqueou o som antes do primeiro toque (NotAllowed) ou a fala foi
-            // interrompida por outra (Abort): a gravação existe, não é para cair na voz do navegador.
-            if (!(e instanceof DOMException && (e.name === 'NotAllowedError' || e.name === 'AbortError'))) fail();
-          },
-        );
+      if (j >= urls.length) return speakIt();
+      const url = urls[j];
+      if (missing.has(url)) return tryUrl(j + 1);
+      const audio = new Audio(url);
+      playing = audio;
+      let failed = false;
+      const fail = () => {
+        if (failed || mine !== turn) return;
+        failed = true;
+        missing.add(url);
+        tryUrl(j + 1);
       };
-      tryExt(0);
+      audio.onended = () => next(i + 1);
+      audio.onerror = fail;
+      audio.play().then(
+        () => (foundExt[url.slice('/vozes/'.length, url.lastIndexOf('/'))] = url.slice(url.lastIndexOf('.') + 1)),
+        (e: unknown) => {
+          // Navegador bloqueou o som antes do primeiro toque (NotAllowed) ou a fala foi
+          // interrompida por outra (Abort): a gravação existe, não é para cair na voz do navegador.
+          if (!(e instanceof DOMException && (e.name === 'NotAllowedError' || e.name === 'AbortError'))) fail();
+        },
+      );
     };
-    tryFile(0);
+    tryUrl(0);
   };
   next(0);
 }

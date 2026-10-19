@@ -5,11 +5,12 @@
   "description": "Territórios: onde a cultura cresce com você! Jogo educativo de Cataguases para crianças",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "dev": "node scripts/lista-vozes.mjs && vite",
+    "build": "node scripts/lista-vozes.mjs && tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "roteiro": "esbuild scripts/roteiro-vozes.ts --bundle --platform=node --format=esm --log-level=warning --outfile=node_modules/.cache/roteiro-vozes.mjs && node node_modules/.cache/roteiro-vozes.mjs"
+    "roteiro": "esbuild scripts/roteiro-vozes.ts --bundle --platform=node --format=esm --log-level=warning --outfile=node_modules/.cache/roteiro-vozes.mjs && node node_modules/.cache/roteiro-vozes.mjs",
+    "vozes-ia": "esbuild scripts/falas-ia.ts --bundle --platform=node --format=esm --log-level=warning --outfile=node_modules/.cache/falas-ia.mjs && node node_modules/.cache/falas-ia.mjs && python scripts/vozes-ia.py && node scripts/lista-vozes.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

@@ -20,6 +20,7 @@ npm run dev        # http://localhost:5174
 | `npm run preview` | Abre o build de `dist/` |
 | `npm run typecheck` | Só a checagem de tipos |
 | `npm run roteiro` | Gera `docs/ROTEIRO-VOZES.md` com todas as falas e o que já foi gravado |
+| `npm run vozes-ia` | Gera a voz de IA (vozes neurais, via `edge-tts`) das falas em `public/vozes/ia/`. Rode depois de mudar algum texto. Precisa de Python e `python -m pip install edge-tts` |
 
 `?hora=dia`, `?hora=tarde` ou `?hora=noite` na URL fixam a hora do dia das cenas.
 
@@ -42,7 +43,7 @@ src/
   lib/cidade.ts     lugares, perguntas, pontos e sons
   lib/vozes.ts      qual gravação toca em cada fala
   lib/personagem.ts personagem salvo no navegador
-public/vozes/       gravações: vozes/<menina|menino>/<pomba|seu-zico|sektor|dona-rosa>/
+public/vozes/       gravações: vozes/<menina|menino>/<pomba|seu-zico|sektor|dona-rosa>/ e a voz de IA em vozes/ia/
 scripts/            gerador do roteiro de vozes
 docs/               roteiro de vozes e falas da Pomba para gravar
 ```

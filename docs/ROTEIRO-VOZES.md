@@ -13,6 +13,7 @@ São 76 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes
 - Pode gravar no celular, num lugar silencioso, com o aparelho a um palmo da boca.
 - Fale **devagar e bem claro**: quem escuta também são crianças aprendendo a ler.
 - Deixe só um respiro de silêncio no começo e no fim. Se errar, grave a fala inteira de novo.
+- Enquanto uma fala não tem gravação, o jogo usa a **voz de IA** dela (`public/vozes/ia/`, gerada por `npm run vozes-ia`). A gravação da criança sempre passa na frente.
 - Os emojis foram tirados do roteiro. As colunas "Menina" e "Menino" mostram o que já está em cada pasta.
 
 ## Pomba (narradora dos lugares) (pasta `pomba`)
