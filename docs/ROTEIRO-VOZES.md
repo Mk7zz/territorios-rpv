@@ -40,46 +40,46 @@ São 76 falas curtas, gravadas por crianças, e **cada uma é gravada duas vezes
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `ponte/pergunta-1.mp3` | Por que a Ponte Metálica de Cataguases é considerada importante para a história da cidade? | gravada |  |
-| `ponte/resposta-1.mp3` | Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases. | gravada |  |
-| `ponte/pergunta-2.mp3` | O que mudou na vida das pessoas depois da construção da Ponte Metálica? | gravada |  |
-| `ponte/resposta-2.mp3` | Ficou mais fácil de viajar, trabalhar e estudar. | gravada |  |
+| `ponte/pergunta-1.mp3` | Por que a Ponte Metálica de Cataguases é considerada importante para a história da cidade? | gravada | gravada |
+| `ponte/resposta-1.mp3` | Porque ela ajudou a ligar diferentes partes da cidade, facilitando a passagem de pessoas e mercadorias e contribuindo para o desenvolvimento de Cataguases. | gravada | gravada |
+| `ponte/pergunta-2.mp3` | O que mudou na vida das pessoas depois da construção da Ponte Metálica? | gravada | gravada |
+| `ponte/resposta-2.mp3` | Ficou mais fácil de viajar, trabalhar e estudar. | gravada | gravada |
 
 ### Museu Energisa (pasta `pomba/museu`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `museu/pergunta-1.mp3` | Por que é importante conhecer a história da eletricidade em Cataguases? | gravada |  |
-| `museu/resposta-1.mp3` | Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas. | gravada |  |
-| `museu/pergunta-2.mp3` | Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia? | gravada |  |
-| `museu/resposta-2.mp3` | A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura. | gravada |  |
+| `museu/pergunta-1.mp3` | Por que é importante conhecer a história da eletricidade em Cataguases? | gravada | gravada |
+| `museu/resposta-1.mp3` | Porque entendemos como as invenções e os conhecimentos ajudaram a transformar a vida das pessoas. | gravada | gravada |
+| `museu/pergunta-2.mp3` | Como a chegada da energia elétrica ajudou as pessoas de Cataguases no dia a dia? | gravada | gravada |
+| `museu/resposta-2.mp3` | A energia elétrica permitiu iluminar casas e ruas, além de ajudar no funcionamento de máquinas, escolas, comércios e fábricas, tornando a vida das pessoas mais fácil e segura. | gravada | gravada |
 
 ### Estação Cataguases (pasta `pomba/estacao`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `estacao/pergunta-1.mp3` | O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases? | gravada |  |
-| `estacao/resposta-1.mp3` | Podemos entender como o trem ajudou no desenvolvimento da cidade. | gravada |  |
-| `estacao/pergunta-2.mp3` | Como a estação ajudou as pessoas a conhecerem novas culturas e costumes? | gravada |  |
-| `estacao/resposta-2.mp3` | Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições. | gravada |  |
+| `estacao/pergunta-1.mp3` | O que podemos aprender ao conhecer a história da Estação Ferroviária de Cataguases? | gravada | gravada |
+| `estacao/resposta-1.mp3` | Podemos entender como o trem ajudou no desenvolvimento da cidade. | gravada | gravada |
+| `estacao/pergunta-2.mp3` | Como a estação ajudou as pessoas a conhecerem novas culturas e costumes? | gravada | gravada |
+| `estacao/resposta-2.mp3` | Porque permitiu a chegada e a saída de pessoas, favorecendo a troca de experiências, ideias e tradições. | gravada | gravada |
 
 ### Chácara Dona Catarina (pasta `pomba/chacara`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `chacara/pergunta-1.mp3` | Por que a Chácara Catarina é um lugar especial para a cidade? |  |  |
-| `chacara/resposta-1.mp3` | Porque guarda histórias antigas, mostra tradições e é um espaço de encontro para aprender e brincar. |  |  |
-| `chacara/pergunta-2.mp3` | Como a Chácara Catarina ajuda a preservar a história da cidade? |  |  |
-| `chacara/resposta-2.mp3` | Guardando memórias, objetos antigos e mostrando como as pessoas viviam no passado. |  |  |
+| `chacara/pergunta-1.mp3` | Por que a Chácara Catarina é um lugar especial para a cidade? |  | gravada |
+| `chacara/resposta-1.mp3` | Porque guarda histórias antigas, mostra tradições e é um espaço de encontro para aprender e brincar. |  | gravada |
+| `chacara/pergunta-2.mp3` | Como a Chácara Catarina ajuda a preservar a história da cidade? |  | gravada |
+| `chacara/resposta-2.mp3` | Guardando memórias, objetos antigos e mostrando como as pessoas viviam no passado. |  | gravada |
 
 ### Centro Cultural Humberto Mauro (pasta `pomba/cultural`)
 
 | Arquivo | Fala | Menina | Menino |
 | --- | --- | --- | --- |
-| `cultural/pergunta-1.mp3` | O que as crianças podem aprender ao visitar o Centro Cultural Humberto Mauro? | gravada |  |
-| `cultural/resposta-1.mp3` | Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade. | gravada |  |
-| `cultural/pergunta-2.mp3` | O que o Humberto Mauro nos ensina sobre o cinema? | gravada |  |
-| `cultural/resposta-2.mp3` | O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo! | gravada |  |
+| `cultural/pergunta-1.mp3` | O que as crianças podem aprender ao visitar o Centro Cultural Humberto Mauro? | gravada | gravada |
+| `cultural/resposta-1.mp3` | Elas podem aprender sobre cinema, arte, história e a importância da cultura para a comunidade. | gravada | gravada |
+| `cultural/pergunta-2.mp3` | O que o Humberto Mauro nos ensina sobre o cinema? | gravada | gravada |
+| `cultural/resposta-2.mp3` | O cinema ajuda a contar histórias, preservar memórias e levar a cultura de um povo para todo o mundo! | gravada | gravada |
 
 ### Memorial Nanzita (pasta `pomba/nanzita`)
 
